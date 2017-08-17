@@ -162,6 +162,9 @@ PRODUCT_PACKAGES += \
     LineageTealAccent \
     LineageYellowAccent
 
+# Disable vendor restrictions
+PRODUCT_RESTRICT_VENDOR_FILES := false
+
 # Extra tools
 PRODUCT_PACKAGES += \
     7z \
