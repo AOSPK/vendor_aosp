@@ -118,6 +118,7 @@ PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
 
 PRODUCT_PACKAGES += \
     Launcher3 \
+    LineageThemesStub \
     ThemePicker
 
 # AOSP packages
