@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-CUSTOM_VERSION := 2.0
+CUSTOM_KK_VERSION := 2.0
 CUSTOM_ANDROID_NAME := Ten
 CUSTOM_ANDROID_VERSION := 10.0
 CUSTOM_BUILD_DATE=$(shell date +"%Y%m%d-%H%M")
@@ -22,18 +22,18 @@ ifndef CUSTOM_BUILD_TYPE
     CUSTOM_BUILD_TYPE := UNOFFICIAL
 endif
 ifeq ($(CUSTOM_BUILD_TYPE), OFFICIAL)
-    CUSTOM_VERSION := $(CUSTOM_DEVICE)-$(CUSTOM_ANDROID_VERSION)-$(CUSTOM_BUILD_DATE)-v$(CUSTOM_VERSION)
+    CUSTOM_VERSION := $(CUSTOM_DEVICE)-$(CUSTOM_ANDROID_VERSION)-$(CUSTOM_BUILD_DATE)-v$(CUSTOM_KK_VERSION)
     PRODUCT_PACKAGES += \
         Updater
 else
-    CUSTOM_VERSION := $(CUSTOM_DEVICE)-$(CUSTOM_ANDROID_VERSION)-$(CUSTOM_BUILD_DATE)-v$(CUSTOM_VERSION)-$(CUSTOM_BUILD_TYPE)
+    CUSTOM_VERSION := $(CUSTOM_DEVICE)-$(CUSTOM_ANDROID_VERSION)-$(CUSTOM_BUILD_DATE)-v$(CUSTOM_KK_VERSION)-$(CUSTOM_BUILD_TYPE)
 endif
 
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.modversion=$(CUSTOM_ANDROID_VERSION) \
     ro.custom.build.version=$(CUSTOM_ANDROID_VERSION) \
-    ro.custom.version=$(CUSTOM_VERSION) \
+    ro.custom.version=$(CUSTOM_KK_VERSION) \
     ro.custom.buildtype=$(CUSTOM_BUILD_TYPE) \
     ro.custom.build.date=$(CUSTOM_BUILD_DATE) \
     ro.custom.device=$(CUSTOM_DEVICE)
