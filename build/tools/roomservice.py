@@ -52,7 +52,7 @@ except:
     device = product
 
 if not depsonly:
-    print("Device %s not found. Attempting to retrieve device repository from KrakenProject Github (http://github.com/KrakenProject)." % device)
+    print("Device %s not found." % device)
 
 repositories = []
 
@@ -299,4 +299,4 @@ else:
             print("Done")
             sys.exit()
 
-print("Repository for %s not found in the KrakenProject Github repository list. If this is in error, you may need to manually add it to your local_manifests/roomservice.xml." % device)
+print("Repository for %s not found in the Github repository list. If this is in error, you may need to manually add it to your local_manifests/roomservice.xml." % device)

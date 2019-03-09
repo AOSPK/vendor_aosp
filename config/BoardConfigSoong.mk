@@ -11,10 +11,6 @@ EXPORT_TO_SOONG := \
     TARGET_KERNEL_CONFIG \
     TARGET_KERNEL_SOURCE
 
-# Setup SOONG_CONFIG_* vars to export the vars listed above.
-# Documentation here:
-# https://github.com/KrakenProject/android_build_soong/commit/8328367c44085b948c003116c0ed74a047237a69
-
 SOONG_CONFIG_NAMESPACES += lineageVarsPlugin
 
 SOONG_CONFIG_lineageVarsPlugin :=
