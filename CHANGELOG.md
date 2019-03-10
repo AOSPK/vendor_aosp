@@ -1,5 +1,54 @@
 # Changelog
 
+## v1.3 (2019.09.09)
+- Merge security path September (android-9.0.0_r48)
+- Updated prebuilts apps google (OpenGApps)
+- Add Launcher3
+- Automatic translation import
+- Update wallpaper default
+- Implement per-app thermal control
+- Updated prebuilts apps google (OpenGApps)
+- PartsActivity: Add a search button to our activities
+- Settings: Apply system tint to first private storage
+- accent: add white
+- Settings: Restore icon AOSP
+- DocumentsUI: Restore icon AOSP
+- Move advanced reboot from system menu (System > Buttons > Button on/off)
+- SystemUI: disable wallpaper-based tint for scrim
+- MTP: Add support of ObjectInfoChanged Event
+- LatinIME: Add en_GB, en_US, lt, lv, ro, sl, sr, tr dictionaries
+- LiveDisplayTile: Remove tile if unavailable
+- Initial support for in-display fingerprint sensors
+- SystemUI: Use matching data usage size formatting between QS and Settings
+- Update Xbox BT controller mapping to support upcoming controller firmware update
+- Add keylayout for Xbox One USB controller
+- Keylayout for xbox controllers
+- Added mapping files for DualShock3 and DualShock4
+- LiveDisplayTile: Refresh state after livedisplay initialization
+- LiveDisplayTile: Enable for outdoor mode and skip night display on HWC2
+- Crash app on foreground service notification error.
+- Set default VR_MODE based on VR feature support
+- fw/b: Add capability to allow tethering to use VPN upstreams
+- power: Respect global vibration setting for charging sounds
+- Fix ExternalStorageProvider always throw exception when rename
+- Fix wrong locale causing reboot in recovery
+- Correction in logic of roundend size calculation of SD card
+- sdk: Fix traffic stats for tethering and vpn use cases
+- sdk: tests: fix LineageHardwareTest
+- sdk: Add LineageContextConstants.Features.FOD
+- LiveDisplayService: Notify SystemUI after initialization finished
+- LiveDisplayManager: Perform null check in getConfig()
+- OutdoorModeController: Unconditionally enable auto mode on HWC2
+- OutdoorModeController: Advertise MODE_AUTO
+- LiveDisplayService: Properly disable ColorTemperature
+- sdk: Add secure setting to allow tethering via VPN upstream
+- sdk: Correct default value of charging sounds
+- sdk: Use AOSP default ringtone for power notification
+- Settings: Remove sound timeout preference from channel_settings Prefe
+- Settings: Add hotspot setting to allow VPN upstreams
+- fw/b: Use common network restrict apps method
+- Allow override of DUN settings
+
 ## v1.2 (2019.08.11)
 - Merge security path August (android-9.0.0_r46)
 - Update Lawnchair alpha-2357

@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-CUSTOM_VERSION := 1.2
+CUSTOM_VERSION := 1.3
 CUSTOM_ANDROID_NAME := Pie
 CUSTOM_ANDROID_VERSION := 9.0
 CUSTOM_BUILD_DATE=$(shell date +"%Y%m%d-%H%M")
