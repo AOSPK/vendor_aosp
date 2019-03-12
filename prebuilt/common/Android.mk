@@ -9,6 +9,18 @@ LOCAL_MODULE_CLASS := EXECUTABLES
 LOCAL_MODULE_PATH := $(TARGET_OUT_OPTIONAL_EXECUTABLES)
 include $(BUILD_PREBUILT)
 
+include $(CLEAR_VARS)
+LOCAL_MODULE := Lawnchair
+LOCAL_SRC_FILES := app/$(LOCAL_MODULE)/$(LOCAL_MODULE).apk
+LOCAL_MODULE_CLASS := APPS
+LOCAL_MODULE_TAGS := optional
+LOCAL_CERTIFICATE := PRESIGNED
+LOCAL_PRIVILEGED_MODULE := true
+LOCAL_OVERRIDES_PACKAGES := Home Launcher2 Launcher3 Launcher3QuickStep
+LOCAL_PRIVILEGED_MODULE := true
+LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
+include $(BUILD_PREBUILT)
+
 ################################
 # Copies the APN list file into system/etc for the product as apns-conf.xml.
 # In the case where $(CUSTOM_APNS_FILE) is defined, the content of $(CUSTOM_APNS_FILE)
