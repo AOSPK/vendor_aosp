@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-CUSTOM_KK_VERSION := 2.0
+CUSTOM_KK_VERSION := 2.1
 CUSTOM_ANDROID_NAME := Ten
 CUSTOM_ANDROID_VERSION := 10.0
 CUSTOM_BUILD_DATE=$(shell date +"%Y%m%d-%H%M")
