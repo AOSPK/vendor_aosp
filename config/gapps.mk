@@ -10,4 +10,11 @@ GAPPS_PRODUCT_PACKAGES += \
     LatinImeGoogle \
     PrebuiltDeskClockGoogle \
     PrebuiltBugle \
-    WellbeingPrebuilt
+    WellbeingPrebuilt \
+    PrebuiltBugle
+
+PRODUCT_COPY_FILES +=  \
+    vendor/aosp/prebuilt/common/sysconfig/dialer_experience.xml:system/etc/sysconfig/dialer_experience.xml
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.opa.eligible_device=true
