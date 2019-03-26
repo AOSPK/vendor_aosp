@@ -261,3 +261,7 @@ PRODUCT_EXTRA_RECOVERY_KEYS += \
 
 # OpenGApps
 include vendor/aosp/config/gapps.mk
+
+# Bootanimation
+PRODUCT_COPY_FILES += \
+    vendor/aosp/media/bootanimation.zip:system/media/bootanimation.zip
