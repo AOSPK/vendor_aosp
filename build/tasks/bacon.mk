@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-LINEAGE_TARGET_PACKAGE := $(PRODUCT_OUT)/kraken_$(CUSTOM_VERSION).zip
+LINEAGE_TARGET_PACKAGE := $(PRODUCT_OUT)/KK_$(CUSTOM_VERSION).zip
 
 .PHONY: bacon
 bacon: $(INTERNAL_OTA_PACKAGE_TARGET)
@@ -22,7 +22,7 @@ bacon: $(INTERNAL_OTA_PACKAGE_TARGET)
 	@echo -e ${CL_CYN}""${CL_CYN}
 	@echo -e ${CL_CYN}""${CL_CYN}
 	@echo -e ${CL_CYN}"============================================= Package complete =============================================="${CL_RST}
-	@echo -e ${CL_CYN}"File   : "${CL_MAG} $(PRODUCT_OUT)/kraken_$(CUSTOM_VERSION).zip${CL_RST}
+	@echo -e ${CL_CYN}"File   : "${CL_MAG} $(PRODUCT_OUT)/KK_$(CUSTOM_VERSION).zip${CL_RST}
 	@echo -e ${CL_CYN}"MD5    : "${CL_MAG}" `cat $(LINEAGE_TARGET_PACKAGE).md5sum | cut -d ' ' -f 1`"${CL_RST}
 	@echo -e ${CL_CYN}"Size   : "${CL_MAG}" `ls -lah $(LINEAGE_TARGET_PACKAGE) | cut -d ' ' -f 5`"${CL_RST}
 	@echo -e ${CL_CYN}"=============================================================================================================="${CL_RST}
