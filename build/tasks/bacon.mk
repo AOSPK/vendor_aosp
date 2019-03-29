@@ -21,6 +21,7 @@ bacon: $(INTERNAL_OTA_PACKAGE_TARGET)
 	$(hide) $(MD5SUM) $(LINEAGE_TARGET_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(LINEAGE_TARGET_PACKAGE).md5sum
 	@echo -e ${CL_CYN}""${CL_CYN}
 	@echo -e ${CL_CYN}""${CL_CYN}
+	cat ./vendor/aosp/tools/ascii_logo;
 	@echo -e ${CL_CYN}"============================================= Package complete =============================================="${CL_RST}
 	@echo -e ${CL_CYN}"File   : "${CL_MAG} $(PRODUCT_OUT)/KK_$(CUSTOM_VERSION).zip${CL_RST}
 	@echo -e ${CL_CYN}"MD5    : "${CL_MAG}" `cat $(LINEAGE_TARGET_PACKAGE).md5sum | cut -d ' ' -f 1`"${CL_RST}
