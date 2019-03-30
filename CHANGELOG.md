@@ -1,0 +1,75 @@
+# Changelog
+
+## v1.2 (2019.08.11)
+- Merge security path August (android-9.0.0_r46)
+- Update Lawnchair alpha-2357
+- Automatic translation import
+- PrivacyGuard: Resolve error message hardcoded white color
+- livedisplay: Don't show duplicate title in LiveDisplay options
+- Settings: Don't index display mode and color temperature on HWC2
+- LiveDisplaySettings: Fix outdoor mode preference on hwc2
+- Settings: Preserve sound timeout pref when showing legacy notifications
+- Settings: per-app VPN data restriction
+- SystemUI: Use appropriate function when trying to retrieve colorError
+- SystemUI: Fix multiple issues with hiding unprovisioned SIMs Fix sim pin - on DSDS
+- Dismiss SIM lock page after correct SIM
+- When data switches during voice call, make sure signal bar updates it.
+- Stop USB Debugging authorization window dismissing on tap outside.
+- Update navigation bar upon change of display density
+- Unable to input PIN with hardware keyboard
+- Fix the behavior of keyguard bouncer in a corner case
+- Fixes context for tiles without longClick
+- Fix to register the receiver for all users
+- Remove unnecessary right padding from time picker
+- config: Remove duplicate notification sounds
+- config: Include charging sounds in notification sounds
+- LatinIME: Add Polish dictionary
+
+## v1.1 (2019.07.08)
+- Merge security path July (android-9.0.0_r44)
+- Add 3 finger swipe screenshot
+- Add setup UI for minimum delay between an app's notification sounds
+- Automatic translations import
+- build: Support SDM710 platform
+- LiveDisplaySettings: Fix outdoor mode preference on hwc2
+- overlays: accents: Update preview colors
+- settings: appops: support setting for work profile apps
+- Settings: Don't index display mode and color temperature on HWC2
+- Update Lawnchair alpha-2279
+
+## v1.0 (2019.04.22)
+- Fix migration from pre-O for AndroidTV devices
+- audio_extn: Add missing pthread.h includes
+- Increase maximum Bluetooth SBC codec bitrate for SBC HD
+- Explicit SBC Dual Channel (SBC HD) support
+- updater: don't verify OTA for now
+- Settings: Removing undue information
+- Fix notification overlay config
+- Fix the legacy color icons
+- Theme dark notifications
+- Add bool to enable algorithm for dark backgrounds
+- Add support for theming notifications
+- Expose a bool to disable dynamic colors
+- Expose a bool to tint notification app name
+- Expose autofill save dialog text color
+- Fix notification overlay config
+- Notification dynamic colors bool compatible with OMS7
+- Notifications: Do not use theme context for remote views
+- Reload assets on overlay change: code improvements
+- Reload more assets on overlay change
+- sepolicy: common: Add a label for /data/kraken_updates
+- Add OpenGApps - Thanks to @opengapps
+- Updater: refactor for Kraken
+- vendor: build: Generate json
+- sdk: Fix the ORG name that shows the ROM version
+- recovery: Blank screen on init
+- Allow using 4G icon instead LTE
+- Move advanced reboot from system menu
+- display: msm8974: Add -Wno-error to compile with global
+- Launcher: Add Lawnchair - Thanks @deletescape
+- SystemUI: Bring back lockscreen tuner
+- SystemUI: Fix double-tap to cam. opens right lockscreen shortcut
+- build: Respect fs_config when generating recovery ramdisk
+- Merged in May 2019 Security Patches
+- qcom: Extend untrusted_app access to battery/power supply sysfs
+- RotationPolicy: Don't crash if configstore 1.1 isn't available
