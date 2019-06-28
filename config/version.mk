@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+KRAKEN_VERSION := 1.0
 CUSTOM_ANDROID_VERSION := Pie
 CUSTOM_BUILD_DATE=$(shell date +"%Y%m%d-%H%M")
 CUSTOM_DEVICE := $(LINEAGE_BUILD)
@@ -24,7 +25,7 @@ PRODUCT_PACKAGES += \
     Updater
 endif
 
-CUSTOM_VERSION := $(CUSTOM_DEVICE)-$(CUSTOM_ANDROID_VERSION)-$(CUSTOM_BUILD_DATE)-$(KRAKEN_BUILD_TYPE)
+CUSTOM_VERSION := $(CUSTOM_DEVICE)-v$(KRAKEN_VERSION)-$(CUSTOM_BUILD_DATE)-$(KRAKEN_BUILD_TYPE)
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.modversion=$(CUSTOM_ANDROID_VERSION) \
