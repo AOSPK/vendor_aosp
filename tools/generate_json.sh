@@ -4,6 +4,7 @@ zip=${1}
 version=${2}
 device=${3}
 type=${4}
+kk_version=${5}
 
 datetime=$(bash -c "cut -d'=' -f2 <<< $(grep 'ro.build.date.utc' $(dirname $zip)/system/build.prop)")
 zip_name=$(basename "$zip")
@@ -19,6 +20,7 @@ function generate_json() {
   echo '      "romtype": "OFFICIAL",'
   echo '      "size": "'$size'",'
   echo '      "url": "'$url'",'
+  echo '      "kk_version": "'$kk_version'",'
   echo '      "version": "'$version'"'
   echo '    }'
 }
