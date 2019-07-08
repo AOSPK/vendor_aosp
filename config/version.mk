@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-KRAKEN_VERSION := 1.0
+KRAKEN_VERSION := 1.1
 CUSTOM_ANDROID_VERSION := Pie
 CUSTOM_BUILD_DATE=$(shell date +"%Y%m%d-%H%M")
 CUSTOM_DEVICE := $(LINEAGE_BUILD)
