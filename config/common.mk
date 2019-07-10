@@ -170,6 +170,7 @@ PRODUCT_PACKAGES += \
     LineagePinkAccent \
     LineagePurpleAccent \
     LineageRedAccent \
+    LineageTealAccent \
     LineageYellowAccent
 
 # Extra tools
