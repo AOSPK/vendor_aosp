@@ -1,3 +1,6 @@
+# Exclude AudioFX
+TARGET_EXCLUDES_AUDIOFX := true
+
 # Inherit full common Lineage stuff
 $(call inherit-product, vendor/aosp/config/common_full.mk)
 
