@@ -125,34 +125,26 @@ PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
 PRODUCT_PACKAGES += \
     Launcher3
 
-# Required packages
+# AOSP packages
 PRODUCT_PACKAGES += \
-    LineageParts \
-    Development \
-    Profiles
-
-# Optional packages
-PRODUCT_PACKAGES += \
-    LiveWallpapersPicker \
-    PhotoTable \
+    ExactCalculator \
+    Exchange2 \
     Terminal
 
-# Custom packages
+# Lineage packages
 PRODUCT_PACKAGES += \
     AudioFX \
+    Backgrounds \
+    LineageParts \
     LineageSettingsProvider \
     LineageSetupWizard \
     Eleven \
-    ExactCalculator \
     Jelly \
     LockClock \
+    Profiles \
     TrebuchetQuickStep \
     WallpaperPicker \
     WeatherProvider
-
-# Exchange support
-PRODUCT_PACKAGES += \
-    Exchange2
 
 # Berry styles
 PRODUCT_PACKAGES += \
