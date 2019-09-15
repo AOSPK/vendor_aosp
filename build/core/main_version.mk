@@ -1,3 +1,9 @@
+# Build fingerprint
+ifneq ($(BUILD_FINGERPRINT),)
+ADDITIONAL_BUILD_PROPERTIES += \
+    ro.build.fingerprint=$(BUILD_FINGERPRINT)
+endif
+
 # LineageOS Platform Display Version
 ADDITIONAL_BUILD_PROPERTIES += \
     ro.lineage.display.version=$(LINEAGE_DISPLAY_VERSION)
