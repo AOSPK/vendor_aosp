@@ -5,10 +5,9 @@ GAPPS_VARIANT := nano
 GAPPS_FORCE_PACKAGE_OVERRIDES := true
 
 GAPPS_PRODUCT_PACKAGES += \
+    DigitalWellbeing \
     GoogleContacts \
     GoogleDialer \
     LatinImeGoogle \
-    PrebuiltDeskClockGoogle \
     PrebuiltBugle \
-    WellbeingPrebuilt \
-    PrebuiltBugle
+    PrebuiltDeskClockGoogle
