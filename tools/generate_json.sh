@@ -10,7 +10,7 @@ datetime=$(bash -c "cut -d'=' -f2 <<< $(grep 'ro.build.date.utc' $(dirname $zip)
 zip_name=$(basename "$zip")
 md5=$(cat "$zip.md5sum" | cut -d' ' -f1)
 size=$(ls -lat $zip | cut -d ' ' -f 5)
-url="https://master.dl.sourceforge.net/project/krakenproject/$device/$zip_name"
+url="https://master.dl.sourceforge.net/project/aosp-forking/$device/$zip_name"
 
 function generate_json() {
   echo '    {'
@@ -20,7 +20,7 @@ function generate_json() {
   echo '      "romtype": "OFFICIAL",'
   echo '      "size": "'$size'",'
   echo '      "url": "'$url'",'
-  echo '      "kk_version": "'$custom_version'",'
+  echo '      "custom_version": "'$custom_version'",'
   echo '      "version": "'$android_version'"'
   echo '    }'
 }
