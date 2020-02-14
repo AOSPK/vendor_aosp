@@ -116,7 +116,6 @@ PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
 PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
 
 PRODUCT_PACKAGES += \
-    Launcher3 \
     LineageThemesStub \
     ThemePicker
 
@@ -239,7 +238,8 @@ endif
 
 # Dex preopt
 PRODUCT_DEXPREOPT_SPEED_APPS += \
-    SystemUI
+    SystemUI \
+    Launcher3
 
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/aosp/overlay
 DEVICE_PACKAGE_OVERLAYS += vendor/aosp/overlay/common
