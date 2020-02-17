@@ -253,7 +253,7 @@ PRODUCT_EXTRA_RECOVERY_KEYS += \
 -include vendor/aosp/config/version.mk
 
 # OpenGApps
-include vendor/aosp/config/gapps.mk
+include vendor/aosp/config/opengapps.mk
 
 # Bootanimation
 PRODUCT_COPY_FILES += \
