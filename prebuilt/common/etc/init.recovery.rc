@@ -1,0 +1,4 @@
+# AOSP recovery install script
+service vendor_flash_recovery /vendor/bin/install-recovery.sh
+    class main
+    disabled

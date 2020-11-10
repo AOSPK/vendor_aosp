@@ -315,3 +315,7 @@ endif
 # Extras
 -include vendor/aosp/config/version.mk
 -include vendor/aosp/config/opengapps.mk
+
+# Disable install recovery
+PRODUCT_COPY_FILES += \
+    vendor/aosp/prebuilt/common/etc/init.recovery.rc:system/etc/init/init.recovery.rc
