@@ -13,10 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# -----------------------------------------------------------------
-# Lineage OTA update package
-
-LINEAGE_TARGET_PACKAGE := $(PRODUCT_OUT)/lineage-$(LINEAGE_VERSION).zip
+LINEAGE_TARGET_PACKAGE := $(PRODUCT_OUT)/$(CUSTOM_VERSION).zip
 
 MD5 := prebuilts/build-tools/path/$(HOST_PREBUILT_TAG)/md5sum
 
@@ -24,4 +21,10 @@ MD5 := prebuilts/build-tools/path/$(HOST_PREBUILT_TAG)/md5sum
 bacon: $(INTERNAL_OTA_PACKAGE_TARGET)
 	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(LINEAGE_TARGET_PACKAGE)
 	$(hide) $(MD5) $(LINEAGE_TARGET_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(LINEAGE_TARGET_PACKAGE).md5sum
-	@echo "Package Complete: $(LINEAGE_TARGET_PACKAGE)" >&2
+	cat ./vendor/aosp/tools/ascii_logo;
+	@echo -e ${CL_CYN}""${CL_CYN}
+	@echo -e ${CL_CYN}""${CL_CYN}
+	@echo -e ${CL_CYN}"Package complete:"${CL_RST}
+	@echo -e ${CL_CYN}"File   : "${CL_MAG} $(PRODUCT_OUT)/$(CUSTOM_VERSION).zip${CL_RST}
+	@echo -e ${CL_CYN}"MD5    : "${CL_MAG}" `cat $(LINEAGE_TARGET_PACKAGE).md5sum | cut -d ' ' -f 1`"${CL_RST}
+	@echo -e ${CL_CYN}"Size   : "${CL_MAG}" `ls -lah $(LINEAGE_TARGET_PACKAGE) | cut -d ' ' -f 5`"${CL_RST}

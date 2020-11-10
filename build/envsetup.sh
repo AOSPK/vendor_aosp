@@ -256,7 +256,7 @@ function lineageremote()
     if [ $LINEAGE = "false" ]
     then
         local PROJECT=$(echo $REMOTE | sed -e "s#platform/#android/#g; s#/#_#g")
-        local PFX="LineageOS/"
+        local PFX="aosp-forking/"
     else
         local PROJECT=$REMOTE
     fi
@@ -921,7 +921,7 @@ alias cmkap='dopush cmka'
 
 function repopick() {
     T=$(gettop)
-    $T/vendor/lineage/build/tools/repopick.py $@
+    $T/vendor/aosp/build/tools/repopick.py $@
 }
 
 function fixup_common_out_dir() {
