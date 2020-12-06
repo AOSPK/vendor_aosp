@@ -310,4 +310,5 @@ endif
 -include vendor/aosp/config/partner_gms.mk
 
 # AOSPK
-include vendor/aosp/config/AOSPK.mk
+include vendor/aosp/config/version.mk
+include vendor/aosp/config/gms.mk
