@@ -311,4 +311,6 @@ endif
 
 # AOSPK
 include vendor/aosp/config/version.mk
-#include vendor/aosp/config/gms.mk
+
+# GMS
+$(call inherit-product, vendor/google/gms/gms-vendor.mk)
