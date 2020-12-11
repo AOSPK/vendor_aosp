@@ -40,6 +40,10 @@ SOONG_CONFIG_lineageGlobalVars += \
     target_surfaceflinger_fod_lib \
     uses_camera_parameter_lib
 
+ifneq ($(TARGET_FORCE_BUILD_FINGERPRINT),)
+SOONG_CONFIG_customGlobalVars += force_build_fingerprint
+endif
+
 SOONG_CONFIG_NAMESPACES += lineageNvidiaVars
 SOONG_CONFIG_lineageNvidiaVars += \
     uses_nv_enhancements
@@ -89,6 +93,11 @@ SOONG_CONFIG_lineageGlobalVars_target_ld_shim_libs := $(subst $(space),:,$(TARGE
 SOONG_CONFIG_lineageGlobalVars_target_process_sdk_version_override := $(TARGET_PROCESS_SDK_VERSION_OVERRIDE)
 SOONG_CONFIG_lineageGlobalVars_target_surfaceflinger_fod_lib := $(TARGET_SURFACEFLINGER_FOD_LIB)
 SOONG_CONFIG_lineageGlobalVars_uses_camera_parameter_lib := $(TARGET_SPECIFIC_CAMERA_PARAMETER_LIBRARY)
+
+ifneq ($(TARGET_FORCE_BUILD_FINGERPRINT),)
+SOONG_CONFIG_customGlobalVars_force_build_fingerprint := $(TARGET_FORCE_BUILD_FINGERPRINT)
+endif
+
 ifneq ($(filter $(UM_PLATFORMS),$(TARGET_BOARD_PLATFORM)),)
 SOONG_CONFIG_lineageQcomVars_qcom_soong_namespace := $(QCOM_SOONG_NAMESPACE)
 endif
