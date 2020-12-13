@@ -27,3 +27,4 @@ bacon: $(INTERNAL_OTA_PACKAGE_TARGET)
 	cat ./vendor/aosp/tools/ascii;
 	@echo -e ${CL_CYN}""${CL_CYN}
 	@echo "Build complete: $(LINEAGE_TARGET_PACKAGE)" >&2
+	$(hide) ./vendor/aosp/tools/generate_json.sh $(LINEAGE_TARGET_PACKAGE) $(CUSTOM_ANDROID_VERSION) $(CUSTOM_DEVICE) $(CUSTOM_BUILD_TYPE)
