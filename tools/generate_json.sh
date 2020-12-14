@@ -9,7 +9,7 @@ datetime=$(bash -c "cut -d'=' -f2 <<< $(grep 'ro.build.date.utc' $(dirname $zip_
 zip=$(basename "$zip_path")
 md5=$(cat "$zip_path.md5sum" | cut -d' ' -f1)
 size=$(ls -lat $zip_path | cut -d ' ' -f 5)
-url="https://master.dl.sourceforge.net/project/aospk/$device/$zip_name"
+url="https://master.dl.sourceforge.net/project/aospk/$device/$zip"
 
 function generate_json() {
   echo '    {'
@@ -25,11 +25,12 @@ function generate_json() {
 if [ $type == "UNOFFICIAL" ];then
   echo
 else
-  generate_json > $zip.json
+  generate_json > $zip_path.json
   echo
   echo 'Information for official maintainers:'
   echo 'After testing the build, publish to SourceForge'
   echo 'Submit your build to the AOSPK/official_devices repository with the json content below.'
   echo
-  cat $zip.json
+  cat $zip_path.json
+  echo
 fi
