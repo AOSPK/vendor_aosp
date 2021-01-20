@@ -13,12 +13,12 @@ url="https://master.dl.sourceforge.net/project/aospk/$device/$zip"
 
 function generate_json() {
   echo '    {'
-  echo '      "datetime": "'$datetime'",'
-  echo '      "filename": "'$zip'",'
-  echo '      "id": "'$md5'",'
-  echo '      "size": "'$size'",'
-  echo '      "url": "'$url'",'
-  echo '      "android": "'$version'"'
+  echo '      "datetime":"'$datetime'",'
+  echo '      "filename":"'$zip'",'
+  echo '      "id":"'$md5'",'
+  echo '      "size":"'$size'",'
+  echo '      "url":"'$url'",'
+  echo '      "android":"'$version'"'
   echo '    }'
 }
 
