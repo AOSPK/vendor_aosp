@@ -314,6 +314,3 @@ include vendor/aosp/config/version.mk
 
 # GMS
 $(call inherit-product, vendor/google/gms/gms-vendor.mk)
-
-# Fingerprint
-include vendor/aosp/config/fingerprint.mk
