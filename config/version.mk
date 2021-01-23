@@ -22,4 +22,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.custom.version=$(CUSTOM_AOSP_VERSION) \
     ro.custom.buildtype=$(CUSTOM_BUILD_TYPE) \
     ro.custom.build.date=$(CUSTOM_BUILD_DATE) \
-    ro.custom.device=$(CUSTOM_DEVICE)
+    ro.custom.device=$(CUSTOM_DEVICE) \
+    ro.custom.android.name=$(CUSTOM_ANDROID_NAME) \
+    ro.custom.android.version=$(CUSTOM_ANDROID_VERSION)
