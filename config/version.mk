@@ -17,9 +17,7 @@ else
 endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.modversion=$(CUSTOM_ANDROID_VERSION) \
-    ro.custom.build.version=$(CUSTOM_ANDROID_VERSION) \
-    ro.custom.version=$(CUSTOM_AOSP_VERSION) \
+    ro.custom.version=$(CUSTOM_VERSION) \
     ro.custom.buildtype=$(CUSTOM_BUILD_TYPE) \
     ro.custom.build.date=$(CUSTOM_BUILD_DATE) \
     ro.custom.device=$(CUSTOM_DEVICE) \
