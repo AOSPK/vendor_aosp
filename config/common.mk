@@ -314,3 +314,4 @@ include vendor/aosp/config/version.mk
 
 # GMS
 $(call inherit-product, vendor/google/gms/gms-vendor.mk)
+$(call inherit-product, vendor/google/gms/config.mk)
