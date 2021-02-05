@@ -45,7 +45,7 @@ DEBUG = False
 custom_local_manifest = ".repo/local_manifests/aosp.xml"
 custom_default_revision =  os.getenv('ROOMSERVICE_DEFAULT_BRANCH', 'eleven')
 custom_dependencies = "aosp.dependencies"
-org_manifest = "aospk-devices"  # leave empty if org is provided in manifest
+org_manifest = "hub-devices"  # leave empty if org is provided in manifest
 org_display = "AOSPK-Devices"  # needed for displaying
 
 github_auth = None
