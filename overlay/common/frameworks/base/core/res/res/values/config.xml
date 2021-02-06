@@ -35,6 +35,14 @@
         <item>com.google.android.gms/com.google.android.gms.update.SystemUpdateService</item>
     </string-array>
 
+    <!-- A list of potential packages, in priority order, that may contain an
+         ephemeral resolver. Each package will be be queried for a component
+         that has been granted the PACKAGE_EPHEMERAL_AGENT permission.
+         This may be empty if ephemeral apps are not supported. -->
+    <string-array name="config_ephemeralResolverPackage">
+        <item>com.google.android.gms</item>
+    </string-array>
+
     <string name="config_mms_user_agent">LineageOS</string>
     <string name="config_mms_user_agent_profile_url">http://www.google.com/oha/rdf/ua-profile-kila.xml</string>
 

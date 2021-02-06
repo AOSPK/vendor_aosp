@@ -6,6 +6,7 @@ device=${3}
 type=${4}
 
 datetime=$(bash -c "cut -d'=' -f2 <<< $(grep 'ro.build.date.utc' $(dirname $zip_path)/system/build.prop)")
+apps=$(bash -c "cut -d'=' -f2 <<< $(grep 'ro.custom.apps' $(dirname $zip_path)/system/build.prop)")
 zip=$(basename "$zip_path")
 md5=$(cat "$zip_path.md5sum" | cut -d' ' -f1)
 size=$(ls -lat $zip_path | cut -d ' ' -f 5)
@@ -18,6 +19,7 @@ function generate_json() {
   echo '      "id":"'$md5'",'
   echo '      "size":"'$size'",'
   echo '      "url":"'$url'",'
+  echo '      "type":"'$apps'",'
   echo '      "android":"'$version'"'
   echo '    }'
 }
