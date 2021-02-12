@@ -311,3 +311,6 @@ endif
 
 # AOSPK
 include vendor/aosp/config/version.mk
+
+PRODUCT_COPY_FILES += \
+    vendor/aosp/media/bootanimation.zip:system/media/bootanimation.zip
