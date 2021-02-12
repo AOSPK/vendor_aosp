@@ -19,27 +19,18 @@ VANILLA_BUILD ?= false
 
 # GMS
 ifeq ($(VANILLA_BUILD), true)
-    APPS_VERSION := Vanilla
+    CUSTOM_APPS_VERSION := Vanilla
 else
     $(call inherit-product-if-exists, vendor/google/gms/config.mk)
-    APPS_VERSION := GApps
+    CUSTOM_APPS_VERSION := GApps
 endif
 
-FULL_VERSION := $(CUSTOM_ANDROID_VERSION)-$(APPS_VERSION)
+CUSTOM_FULL_VERSION := $(CUSTOM_ANDROID_VERSION)-$(CUSTOM_APPS_VERSION)
 
 ifeq ($(CUSTOM_BUILD_TYPE), OFFICIAL)
-    CUSTOM_VERSION := $(CUSTOM_AOSP_VERSION)-$(FULL_VERSION)-$(CUSTOM_BUILD_DATE)-$(CUSTOM_DEVICE)
-#    PRODUCT_PACKAGES += \
-#        Updater
+    CUSTOM_VERSION := $(CUSTOM_AOSP_VERSION)-$(CUSTOM_FULL_VERSION)-$(CUSTOM_BUILD_DATE)-$(CUSTOM_DEVICE)
+    PRODUCT_PACKAGES += \
+        Updater
 else
-    CUSTOM_VERSION := $(CUSTOM_AOSP_VERSION)-$(FULL_VERSION)-$(CUSTOM_BUILD_DATE)-$(CUSTOM_DEVICE)-$(CUSTOM_BUILD_TYPE)
+    CUSTOM_VERSION := $(CUSTOM_AOSP_VERSION)-$(CUSTOM_FULL_VERSION)-$(CUSTOM_BUILD_DATE)-$(CUSTOM_DEVICE)-$(CUSTOM_BUILD_TYPE)
 endif
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.custom.version=$(CUSTOM_VERSION) \
-    ro.custom.buildtype=$(CUSTOM_BUILD_TYPE) \
-    ro.custom.build.date=$(CUSTOM_BUILD_DATE) \
-    ro.custom.device=$(CUSTOM_DEVICE) \
-    ro.custom.android.name=$(CUSTOM_ANDROID_NAME) \
-    ro.custom.android.version=$(CUSTOM_ANDROID_VERSION) \
-    ro.custom.apps=$(APPS_VERSION)
