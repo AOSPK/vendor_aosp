@@ -30,7 +30,7 @@ ADDITIONAL_BUILD_PROPERTIES += \
     ro.custom.releasetype=$(CUSTOM_BUILD_TYPE) \
     ro.custom.build.version=$(CUSTOM_ANDROID_VERSION) \
     ro.modversion=$(CUSTOM_VERSION) \
-    ro.custom.display.version=$(CUSTOM_VERSION) \
+    ro.custom.display.version=$(CUSTOM_FULL_VERSION)-$(CUSTOM_BUILD_DATE)-$(CUSTOM_BUILD_TYPE) \
     ro.custom.device=$(CUSTOM_DEVICE) \
     ro.custom.build.date=$(CUSTOM_BUILD_DATE)
 
