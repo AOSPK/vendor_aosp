@@ -1,8 +1,8 @@
-# Inherit common Lineage stuff
+# Inherit common custom stuff
 $(call inherit-product, vendor/aosp/config/common.mk)
 
-# Inherit Lineage atv device tree
-$(call inherit-product, device/custom/atv/lineage_atv.mk)
+# Inherit custom atv device tree
+$(call inherit-product, device/custom/atv/custom_atv.mk)
 
 # AOSP packages
 PRODUCT_PACKAGES += \

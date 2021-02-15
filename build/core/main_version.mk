@@ -1,30 +1,16 @@
-# Build fingerprint
-#ifneq ($(BUILD_FINGERPRINT),)
-#ADDITIONAL_BUILD_PROPERTIES += \
-#    ro.build.fingerprint=$(BUILD_FINGERPRINT)
-#endif
-
-# LineageOS System Version
-#ADDITIONAL_BUILD_PROPERTIES += \
-#    ro.lineage.version=$(LINEAGE_VERSION) \
-#    ro.lineage.releasetype=$(LINEAGE_BUILDTYPE) \
-#    ro.lineage.build.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR) \
-#    ro.modversion=$(LINEAGE_VERSION) \
-#    ro.lineagelegal.url=https://lineageos.org/legal
-
-# LineageOS Platform Display Version
+# CustomPlatform Display Version
 ADDITIONAL_BUILD_PROPERTIES += \
-    ro.lineage.display.version=$(LINEAGE_DISPLAY_VERSION)
+    ro.custom.display.version=$(CUSTOM_DISPLAY_VERSION)
 
-# LineageOS Platform SDK Version
+# CustomPlatform SDK Version
 ADDITIONAL_BUILD_PROPERTIES += \
-    ro.lineage.build.version.plat.sdk=$(LINEAGE_PLATFORM_SDK_VERSION)
+    ro.custom.build.version.plat.sdk=$(CUSTOM_PLATFORM_SDK_VERSION)
 
-# LineageOS Platform Internal Version
+# CustomPlatform Internal Version
 ADDITIONAL_BUILD_PROPERTIES += \
-    ro.lineage.build.version.plat.rev=$(LINEAGE_PLATFORM_REV)
+    ro.custom.build.version.plat.rev=$(CUSTOM_PLATFORM_REV)
 
-# Custom
+# Kraken Verion
 ADDITIONAL_BUILD_PROPERTIES += \
     ro.custom.version=$(CUSTOM_VERSION) \
     ro.custom.releasetype=$(CUSTOM_BUILD_TYPE) \

@@ -12,13 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-$(call inherit-product, device/google/atv/products/aosp_tv_arm.mk)
+$(call inherit-product, build/target/product/aosp_arm.mk)
 
-include vendor/aosp/build/target/product/lineage_generic_tv_target.mk
+include vendor/aosp/build/target/product/aosp_generic_target.mk
 
 TARGET_NO_KERNEL_OVERRIDE := true
 TARGET_USES_64_BIT_BINDER := true
 
-PRODUCT_NAME := lineage_tv_arm
-
-PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS :=
+PRODUCT_NAME := aosp_arm

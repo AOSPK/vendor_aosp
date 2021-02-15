@@ -43,7 +43,7 @@
         <item>com.google.android.gms</item>
     </string-array>
 
-    <string name="config_mms_user_agent">LineageOS</string>
+    <string name="config_mms_user_agent">Kraken</string>
     <string name="config_mms_user_agent_profile_url">http://www.google.com/oha/rdf/ua-profile-kila.xml</string>
 
     <!-- Enable lockscreen rotation by default -->

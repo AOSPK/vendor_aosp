@@ -16,40 +16,40 @@
 #
 
 # Makefile for producing lineage sdk coverage reports.
-# Run "make lineage-sdk-test-coverage" in the $ANDROID_BUILD_TOP directory.
+# Run "make custom-sdk-test-coverage" in the $ANDROID_BUILD_TOP directory.
 
-lineage_sdk_api_coverage_exe := $(HOST_OUT_EXECUTABLES)/lineage-sdk-api-coverage
+lineage_sdk_api_coverage_exe := $(HOST_OUT_EXECUTABLES)/custom-sdk-api-coverage
 dexdeps_exe := $(HOST_OUT_EXECUTABLES)/dexdeps
 
-coverage_out := $(HOST_OUT)/lineage-sdk-api-coverage
+coverage_out := $(HOST_OUT)/custom-sdk-api-coverage
 
-api_text_description := lineage-sdk/api/lineage_current.txt
+api_text_description := custom-sdk/api/lineage_current.txt
 api_xml_description := $(coverage_out)/api.xml
 $(api_xml_description) : $(api_text_description) $(APICHECK)
 	$(hide) echo "Converting API file to XML: $@"
 	$(hide) mkdir -p $(dir $@)
 	$(hide) $(APICHECK_COMMAND) -convert2xml $< $@
 
-lineage-sdk-test-coverage-report := $(coverage_out)/lineage-sdk-test-coverage.html
+custom-sdk-test-coverage-report := $(coverage_out)/custom-sdk-test-coverage.html
 
 lineage_sdk_tests_apk := $(call intermediates-dir-for,APPS,LineagePlatformTests)/package.apk
 lineagesettingsprovider_tests_apk := $(call intermediates-dir-for,APPS,LineageSettingsProviderTests)/package.apk
 lineage_sdk_api_coverage_dependencies := $(lineage_sdk_api_coverage_exe) $(dexdeps_exe) $(api_xml_description)
 
-$(lineage-sdk-test-coverage-report): PRIVATE_TEST_CASES := $(lineage_sdk_tests_apk) $(lineagesettingsprovider_tests_apk)
-$(lineage-sdk-test-coverage-report): PRIVATE_LINEAGE_SDK_API_COVERAGE_EXE := $(lineage_sdk_api_coverage_exe)
-$(lineage-sdk-test-coverage-report): PRIVATE_DEXDEPS_EXE := $(dexdeps_exe)
-$(lineage-sdk-test-coverage-report): PRIVATE_API_XML_DESC := $(api_xml_description)
-$(lineage-sdk-test-coverage-report): $(lineage_sdk_tests_apk) $(lineagesettingsprovider_tests_apk) $(lineage_sdk_api_coverage_dependencies) | $(ACP)
+$(custom-sdk-test-coverage-report): PRIVATE_TEST_CASES := $(lineage_sdk_tests_apk) $(lineagesettingsprovider_tests_apk)
+$(custom-sdk-test-coverage-report): PRIVATE_CUSTOM_SDK_API_COVERAGE_EXE := $(lineage_sdk_api_coverage_exe)
+$(custom-sdk-test-coverage-report): PRIVATE_DEXDEPS_EXE := $(dexdeps_exe)
+$(custom-sdk-test-coverage-report): PRIVATE_API_XML_DESC := $(api_xml_description)
+$(custom-sdk-test-coverage-report): $(lineage_sdk_tests_apk) $(lineagesettingsprovider_tests_apk) $(lineage_sdk_api_coverage_dependencies) | $(ACP)
 	$(call generate-lineage-coverage-report,"LINEAGE-SDK API Coverage Report",\
 			$(PRIVATE_TEST_CASES),html)
 
-.PHONY: lineage-sdk-test-coverage
-lineage-sdk-test-coverage : $(lineage-sdk-test-coverage-report)
+.PHONY: custom-sdk-test-coverage
+custom-sdk-test-coverage : $(custom-sdk-test-coverage-report)
 
-# Put the test coverage report in the dist dir if "lineage-sdk" is among the build goals.
-ifneq ($(filter lineage-sdk, $(MAKECMDGOALS)),)
-  $(call dist-for-goals, lineage-sdk, $(lineage-sdk-test-coverage-report):lineage-sdk-test-coverage-report.html)
+# Put the test coverage report in the dist dir if "custom-sdk" is among the build goals.
+ifneq ($(filter custom-sdk, $(MAKECMDGOALS)),)
+  $(call dist-for-goals, custom-sdk, $(custom-sdk-test-coverage-report):custom-sdk-test-coverage-report.html)
 endif
 
 # Arguments;
@@ -58,16 +58,16 @@ endif
 #  3 - Format of the report
 define generate-lineage-coverage-report
 	$(hide) mkdir -p $(dir $@)
-	$(hide) $(PRIVATE_LINEAGE_SDK_API_COVERAGE_EXE) -d $(PRIVATE_DEXDEPS_EXE) -a $(PRIVATE_API_XML_DESC) -f $(3) -o $@ $(2) -cm
+	$(hide) $(PRIVATE_CUSTOM_SDK_API_COVERAGE_EXE) -d $(PRIVATE_DEXDEPS_EXE) -a $(PRIVATE_API_XML_DESC) -f $(3) -o $@ $(2) -cm
 	@ echo $(1): file://$@
 endef
 
 # Reset temp vars
 lineage_sdk_api_coverage_dependencies :=
-lineage-sdk-combined-coverage-report :=
-lineage-sdk-combined-xml-coverage-report :=
-lineage-sdk-verifier-coverage-report :=
-lineage-sdk-test-coverage-report :=
+custom-sdk-combined-coverage-report :=
+custom-sdk-combined-xml-coverage-report :=
+custom-sdk-verifier-coverage-report :=
+custom-sdk-test-coverage-report :=
 api_xml_description :=
 api_text_description :=
 coverage_out :=

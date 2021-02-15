@@ -13,12 +13,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-LINEAGE_SRC_API_DIR := $(TOPDIR)prebuilts/lineage-sdk/api
-INTERNAL_LINEAGE_PLATFORM_API_FILE := $(TARGET_OUT_COMMON_INTERMEDIATES)/PACKAGING/lineage_public_api.txt
-INTERNAL_LINEAGE_PLATFORM_REMOVED_API_FILE := $(TARGET_OUT_COMMON_INTERMEDIATES)/PACKAGING/lineage_removed.txt
-FRAMEWORK_LINEAGE_PLATFORM_API_FILE := $(TOPDIR)lineage-sdk/api/lineage_current.txt
-FRAMEWORK_LINEAGE_PLATFORM_REMOVED_API_FILE := $(TOPDIR)lineage-sdk/api/lineage_removed.txt
-FRAMEWORK_LINEAGE_API_NEEDS_UPDATE_TEXT := $(TOPDIR)vendor/aosp/build/core/apicheck_msg_current.txt
+CUSTOM_SRC_API_DIR := $(TOPDIR)prebuilts/custom-sdk/api
+INTERNAL_CUSTOM_PLATFORM_API_FILE := $(TARGET_OUT_COMMON_INTERMEDIATES)/PACKAGING/lineage_public_api.txt
+INTERNAL_CUSTOM_PLATFORM_REMOVED_API_FILE := $(TARGET_OUT_COMMON_INTERMEDIATES)/PACKAGING/lineage_removed.txt
+FRAMEWORK_CUSTOM_PLATFORM_API_FILE := $(TOPDIR)custom-sdk/api/lineage_current.txt
+FRAMEWORK_CUSTOM_PLATFORM_REMOVED_API_FILE := $(TOPDIR)custom-sdk/api/lineage_removed.txt
+FRAMEWORK_CUSTOM_API_NEEDS_UPDATE_TEXT := $(TOPDIR)vendor/aosp/build/core/apicheck_msg_current.txt
 
 # Rules for QCOM targets
 include $(TOPDIR)vendor/aosp/build/core/qcom_target.mk
