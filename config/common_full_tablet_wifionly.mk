@@ -1,4 +1,4 @@
-# Inherit full common Lineage stuff
+# Inherit full common stuff
 $(call inherit-product, vendor/aosp/config/common_full.mk)
 
 # Required packages

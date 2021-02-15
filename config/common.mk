@@ -77,7 +77,7 @@ include vendor/aosp/config/aosp_audio.mk
 include vendor/aosp/config/custom_audio.mk
 
 ifneq ($(TARGET_DISABLE_CUSTOM_SDK), true)
-# Lineage SDK
+# SDK
 include vendor/aosp/config/custom_sdk_common.mk
 endif
 
@@ -98,8 +98,8 @@ PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
 PRODUCT_RESTRICT_VENDOR_FILES := false
 
 # Bootanimation
-PRODUCT_PACKAGES += \
-    bootanimation.zip
+PRODUCT_COPY_FILES += \
+    vendor/aosp/media/bootanimation.zip:system/media/bootanimation.zip
 
 # AOSP packages
 PRODUCT_PACKAGES += \
@@ -107,14 +107,12 @@ PRODUCT_PACKAGES += \
 
 # Custom packages
 PRODUCT_PACKAGES += \
-    LineageParts \
-    LineageSettingsProvider \
-    LineageSetupWizard
-#    Updater
+    CustomParts \
+    CustomSettingsProvider \
 
 # Themes
 PRODUCT_PACKAGES += \
-    LineageThemesStub \
+    CustomThemesStub \
     ThemePicker
 
 # Config
@@ -196,8 +194,4 @@ PRODUCT_EXTRA_RECOVERY_KEYS += \
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
 -include vendor/aosp/config/partner_gms.mk
 
-# AOSPK
 include vendor/aosp/config/version.mk
-
-PRODUCT_COPY_FILES += \
-    vendor/aosp/media/bootanimation.zip:system/media/bootanimation.zip

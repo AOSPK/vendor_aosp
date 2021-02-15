@@ -1,4 +1,4 @@
-# Inherit common mobile Lineage stuff
+# Inherit common mobile stuff
 $(call inherit-product, vendor/aosp/config/common.mk)
 
 # Default notification/alarm sounds
@@ -8,18 +8,8 @@ PRODUCT_PRODUCT_PROPERTIES += \
 
 # AOSP packages
 PRODUCT_PACKAGES += \
-    Email \
     ExactCalculator \
     Exchange2
-
-# Lineage packages
-PRODUCT_PACKAGES += \
-    Backgrounds \
-    Eleven \
-    Etar \
-    Jelly \
-    Profiles \
-    Seedvault
 
 ifneq ($(TARGET_EXCLUDES_AUDIOFX),true)
 PRODUCT_PACKAGES += \
@@ -28,31 +18,31 @@ endif
 
 ifeq ($(PRODUCT_TYPE), go)
 PRODUCT_PACKAGES += \
-    TrebuchetQuickStepGo
+    Launcher3QuickStepGo
 
 PRODUCT_DEXPREOPT_SPEED_APPS += \
-    TrebuchetQuickStepGo
+    Launcher3QuickStepGo
 else
 PRODUCT_PACKAGES += \
-    TrebuchetQuickStep
+    Launcher3QuickStep
 
 PRODUCT_DEXPREOPT_SPEED_APPS += \
-    TrebuchetQuickStep
+    Launcher3QuickStep
 endif
 
 # Accents
 PRODUCT_PACKAGES += \
-    LineageBlackTheme \
-    LineageBlackAccent \
-    LineageBlueAccent \
-    LineageBrownAccent \
-    LineageCyanAccent \
-    LineageGreenAccent \
-    LineageOrangeAccent \
-    LineagePinkAccent \
-    LineagePurpleAccent \
-    LineageRedAccent \
-    LineageYellowAccent
+    CustomBlackTheme \
+    CustomBlackAccent \
+    CustomBlueAccent \
+    CustomBrownAccent \
+    CustomCyanAccent \
+    CustomGreenAccent \
+    CustomOrangeAccent \
+    CustomPinkAccent \
+    CustomPurpleAccent \
+    CustomRedAccent \
+    CustomYellowAccent
 
 # Charger
 PRODUCT_PACKAGES += \
@@ -61,7 +51,7 @@ PRODUCT_PACKAGES += \
 # Customizations
 PRODUCT_PACKAGES += \
     IconShapeSquareOverlay \
-    LineageNavigationBarNoHint \
+    CustomNavigationBarNoHint \
     NavigationBarMode2ButtonOverlay
 
 # Media

@@ -1,5 +1,5 @@
 #
-# Lineage Audio Files
+# Audio Files
 #
 
 ALARM_PATH := vendor/aosp/prebuilt/common/media/audio/alarms
