@@ -17,6 +17,6 @@
 
 <resources>
     <color name="default_background">#1b39a6</color>
-    <color name="accent_color">#5d196b</color>
+    <color name="accent_color">#9faf23</color>
     <color name="secondary_color">#2a56c6</color>
 </resources>
