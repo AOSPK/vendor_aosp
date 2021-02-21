@@ -13,14 +13,6 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.com.google.clientidbase=$(PRODUCT_GMS_CLIENTID_BASE)
 endif
 
-ifeq ($(TARGET_BUILD_VARIANT),eng)
-# Disable ADB authentication
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += ro.adb.secure=0
-else
-# Enable ADB authentication
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += ro.adb.secure=1
-endif
-
 ifneq ($(TARGET_ENABLE_ADB), true)
 # Enable ADB authentication
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += ro.adb.secure=1
