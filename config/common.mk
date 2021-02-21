@@ -106,7 +106,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     CustomParts \
     CustomSettingsProvider \
-		FMRadio
+    FMRadio
 
 # Themes
 PRODUCT_PACKAGES += \
