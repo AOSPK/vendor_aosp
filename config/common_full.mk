@@ -12,7 +12,3 @@ PRODUCT_PACKAGES += \
     fonts_customization.xml \
     CustomLatoFont \
     CustomRubikFont
-
-# Recorder
-PRODUCT_PACKAGES += \
-    Recorder
