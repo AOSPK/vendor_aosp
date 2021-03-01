@@ -25,6 +25,11 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
     Launcher3QuickStep
 endif
 
+ifeq ($(VANILLA_BUILD), true)
+    PRODUCT_PACKAGES += \
+        Jelly
+else
+
 # Accents
 PRODUCT_PACKAGES += \
     CustomBlackTheme \
