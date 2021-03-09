@@ -18,5 +18,4 @@ include vendor/aosp/build/target/product/aosp_generic_target.mk
 
 PRODUCT_NAME := aosp_x86_64_ab
 
-PRODUCT_SDK_ADDON_NAME := aosp
 PRODUCT_SDK_ADDON_SYS_IMG_SOURCE_PROP := $(LOCAL_PATH)/source.properties
