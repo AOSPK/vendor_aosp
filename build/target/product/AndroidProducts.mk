@@ -19,6 +19,10 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/aosp_arm64.mk \
     $(LOCAL_DIR)/aosp_x86.mk \
     $(LOCAL_DIR)/aosp_x86_64.mk \
+    $(LOCAL_DIR)/aosp_arm_ab.mk \
+    $(LOCAL_DIR)/aosp_arm64_ab.mk \
+    $(LOCAL_DIR)/aosp_x86_ab.mk \
+    $(LOCAL_DIR)/aosp_x86_64_ab.mk \
     $(LOCAL_DIR)/aosp_tv_arm.mk \
     $(LOCAL_DIR)/aosp_tv_arm64.mk \
     $(LOCAL_DIR)/aosp_tv_x86.mk \
@@ -29,6 +33,10 @@ COMMON_LUNCH_CHOICES := \
     aosp_arm64-userdebug \
     aosp_x86-userdebug \
     aosp_x86_64-userdebug \
+    aosp_arm_ab-userdebug \
+    aosp_arm64_ab-userdebug \
+    aosp_x86_ab-userdebug \
+    aosp_x86_64_ab-userdebug \
     aosp_tv_arm-userdebug \
     aosp_tv_arm64-userdebug \
     aosp_tv_x86-userdebug \

@@ -13,6 +13,7 @@
 # limitations under the License.
 
 $(call inherit-product, build/target/product/aosp_arm.mk)
+$(call inherit-product, build/target/product/gsi_release.mk)
 
 include vendor/aosp/build/target/product/aosp_generic_target.mk
 
