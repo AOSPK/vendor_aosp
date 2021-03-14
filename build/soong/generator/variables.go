@@ -6,12 +6,12 @@ import (
 	"android/soong/android"
 )
 
-func arrowExpandVariables(ctx android.ModuleContext, in string) string {
-	arrowVars := ctx.Config().VendorConfig("arrowVarsPlugin")
+func krakenExpandVariables(ctx android.ModuleContext, in string) string {
+	krakenVars := ctx.Config().VendorConfig("krakenVarsPlugin")
 
 	out, err := android.Expand(in, func(name string) (string, error) {
-		if arrowVars.IsSet(name) {
-			return arrowVars.String(name), nil
+		if krakenVars.IsSet(name) {
+			return krakenVars.String(name), nil
 		}
 		// This variable is not for us, restore what the original
 		// variable string will have looked like for an Expand

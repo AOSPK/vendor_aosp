@@ -13,58 +13,43 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-ARROW_MOD_VERSION = v11.0
-ARROW_BUILD_TYPE := UNOFFICIAL
-ARROW_BUILD_ZIP_TYPE := VANILLA
+KRAKEN_MOD_VERSION = 12
+KRAKEN_MOD_NAME = twelve
+KRAKEN_BUILD_TYPE ?= UNOFFICIAL
+KRAKEN_BUILD_ZIP_TYPE ?= GApps
+KRAKEN_BUILD_DATE = $(shell date +"%Y%m%d-%H%M")
+KRAKEN_MAINTAINER ?= UNAVAILABLE
+KRAKEN_VANILLA ?= false
+KRAKEN_BETA = true
 
-ifeq ($(ARROW_BETA),true)
-    ARROW_BUILD_TYPE := BETA
-endif
-
-ifeq ($(ARROW_GAPPS), true)
+ifeq ($(KRAKEN_VANILLA), true)
+    KRAKEN_BUILD_ZIP_TYPE := Vanilla
+    PRODUCT_SYSTEM_DEFAULT_PROPERTIES += ro.kraken.ziptype=vanilla
+else
     $(call inherit-product, vendor/gapps/common/common-vendor.mk)
-    ARROW_BUILD_ZIP_TYPE := GAPPS
+    KRAKEN_BUILD_ZIP_TYPE := GApps
+    PRODUCT_SYSTEM_DEFAULT_PROPERTIES += ro.kraken.ziptype=gapps
 endif
 
 CURRENT_DEVICE=$(shell echo "$(TARGET_PRODUCT)" | cut -d'_' -f 2,3)
 
-ifeq ($(ARROW_OFFICIAL), true)
-   LIST = $(shell cat infrastructure/devices/arrow.devices | awk '$$1 != "#" { print $$2 }')
-    ifeq ($(filter $(CURRENT_DEVICE), $(LIST)), $(CURRENT_DEVICE))
-      IS_OFFICIAL=true
-      ARROW_BUILD_TYPE := OFFICIAL
-
-PRODUCT_PACKAGES += \
-    Updater
-
-    endif
-    ifneq ($(IS_OFFICIAL), true)
-       ARROW_BUILD_TYPE := UNOFFICIAL
-       $(error Device is not official "$(CURRENT_DEVICE)")
-    endif
+ifeq ($(KRAKEN_BETA), true)
+    KRAKEN_VERSION := Kraken-$(KRAKEN_MOD_VERSION)-$(KRAKEN_BUILD_ZIP_TYPE)-$(KRAKEN_BUILD_DATE)-$(CURRENT_DEVICE)-BETA-UNOFFICIAL
+else ifeq ($(KRAKEN_BUILD_TYPE), OFFICIAL)
+    KRAKEN_VERSION := Kraken-$(KRAKEN_MOD_VERSION)-$(KRAKEN_BUILD_ZIP_TYPE)-$(KRAKEN_BUILD_DATE)-$(CURRENT_DEVICE)
+    PRODUCT_PACKAGES += Updater
+else
+    KRAKEN_VERSION := Kraken-$(KRAKEN_MOD_VERSION)-$(KRAKEN_BUILD_ZIP_TYPE)-$(KRAKEN_BUILD_DATE)-$(CURRENT_DEVICE)-UNOFFICIAL
 endif
 
-ifeq ($(ARROW_COMMUNITY), true)
-   LIST = $(shell cat infrastructure/devices/arrow-community.devices | awk '$$1 != "#" { print $$2 }')
-    ifeq ($(filter $(CURRENT_DEVICE), $(LIST)), $(CURRENT_DEVICE))
-      IS_COMMUNITY=true
-      ARROW_BUILD_TYPE := COMMUNITY
-    endif
-    ifneq ($(IS_COMMUNITY), true)
-       ARROW_BUILD_TYPE := UNOFFICIAL
-       $(error This isn't a community device "$(CURRENT_DEVICE)")
-    endif
-endif
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+  ro.kraken.version=$(KRAKEN_VERSION) \
+  ro.kraken.releasetype=$(KRAKEN_BUILD_TYPE) \
+  ro.kraken.device=$(CURRENT_DEVICE) \
+  ro.kraken.maintainer=$(KRAKEN_MAINTAINER) \
+  ro.modversion=$(KRAKEN_MOD_VERSION)
 
-ARROW_VERSION := Arrow-$(ARROW_MOD_VERSION)-$(CURRENT_DEVICE)-$(ARROW_BUILD_TYPE)-$(shell date -u +%Y%m%d)-$(ARROW_BUILD_ZIP_TYPE)
+KRAKEN_DISPLAY_VERSION := Kraken-$(KRAKEN_MOD_VERSION)-$(KRAKEN_BUILD_ZIP_TYPE)-$(CURRENT_DEVICE)-$(KRAKEN_BUILD_TYPE)
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-  ro.arrow.version=$(ARROW_VERSION) \
-  ro.arrow.releasetype=$(ARROW_BUILD_TYPE) \
-  ro.arrow.ziptype=$(ARROW_BUILD_ZIP_TYPE) \
-  ro.modversion=$(ARROW_MOD_VERSION)
-
-ARROW_DISPLAY_VERSION := Arrow-$(ARROW_MOD_VERSION)-$(ARROW_BUILD_TYPE)
-
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-  ro.arrow.display.version=$(ARROW_DISPLAY_VERSION)
+  ro.kraken.display.version=$(KRAKEN_DISPLAY_VERSION)

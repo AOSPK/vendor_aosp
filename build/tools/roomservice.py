@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # Copyright (C) 2012-2013, The CyanogenMod Project
 # Copyright (C) 2012-2015, SlimRoms Project
+# Copyright (C) 2020-2021, The Kraken Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -40,16 +41,12 @@ except ImportError:
     urllib.request = urllib2
 
 DEBUG = False
-default_manifest = ".repo/manifest.xml"
 
-custom_local_manifest = ".repo/local_manifests/roomservice.xml"
-custom_default_revision = "arrow-11.0"
-custom_dependencies = "arrow.dependencies"
-org_manifest = "ArrowOS-Devices"  # leave empty if org is provided in manifest
-org_display = "ArrowOS-Devices"  # needed for displaying
-
-arrow_manifest = ".repo/manifests/arrow.xml"
-hals_manifest = ".repo/manifests/hals.xml"
+kraken_local_manifest = ".repo/local_manifests/aosp.xml"
+kraken_default_revision =  os.getenv('ROOMSERVICE_DEFAULT_BRANCH', 'twelve')
+kraken_dependencies = "aosp.dependencies"
+org_manifest = "hub-devices"  # leave empty if org is provided in manifest
+org_display = "AOSPK-Devices"  # needed for displaying
 
 github_auth = None
 
@@ -80,16 +77,6 @@ def add_auth(g_req):
         g_req.add_header("Authorization", "Basic %s" % github_auth)
 
 
-def exists_in_tree(lm, repository):
-    for child in lm.getchildren():
-        try:
-            if child.attrib['path'].endswith(repository):
-                return child
-        except:
-            pass
-    return None
-
-
 def indent(elem, level=0):
     # in-place prettyprint formatter
     i = "\n" + "  " * level
@@ -106,7 +93,6 @@ def indent(elem, level=0):
         if level and (not elem.tail or not elem.tail.strip()):
             elem.tail = i
 
-
 def load_manifest(manifest):
     try:
         man = ElementTree.parse(manifest).getroot()
@@ -114,45 +100,9 @@ def load_manifest(manifest):
         man = ElementTree.Element("manifest")
     return man
 
-
-def get_default(manifest=None):
-    m = manifest or load_manifest(default_manifest)
-    d = m.findall('default')[0]
-    return d
-
-
-def get_remote(manifest=None, remote_name=None):
-    m = manifest or load_manifest(default_manifest)
-    if not remote_name:
-        remote_name = get_default(manifest=m).get('remote')
-    remotes = m.findall('remote')
-    for remote in remotes:
-        if remote_name == remote.get('name'):
-            return remote
-
-
-def get_revision(manifest=None, p="build"):
-    m = manifest or load_manifest(default_manifest)
-    project = None
-    for proj in m.findall('project'):
-        if proj.get('path').strip('/') == p:
-            project = proj
-            break
-    if project is None:
-        return custom_default_revision
-    revision = project.get('revision')
-    if revision:
-        return revision.replace('refs/heads/', '').replace('refs/tags/', '')
-    remote = get_remote(manifest=m, remote_name=project.get('remote'))
-    revision = remote.get('revision')
-    if not revision:
-        return custom_default_revision
-    return revision.replace('refs/heads/', '').replace('refs/tags/', '')
-
-
 def get_from_manifest(device_name):
-    for man in (custom_local_manifest, default_manifest):
-        man = load_manifest(man)
+    if os.path.exists(kraken_local_manifest):
+        man = load_manifest(kraken_local_manifest)
         for local_path in man.findall("project"):
             lp = local_path.get("path").strip('/')
             if lp.startswith("device/") and lp.endswith("/" + device_name):
@@ -161,67 +111,46 @@ def get_from_manifest(device_name):
 
 
 def is_in_manifest(project_path):
-    for man in (custom_local_manifest, default_manifest):
-        man = load_manifest(man)
-        for local_path in man.findall("project"):
-            if local_path.get("path") == project_path:
-                return True
+    man = load_manifest(kraken_local_manifest)
+    for local_path in man.findall("project"):
+        if local_path.get("path") == project_path:
+            return True
     return False
 
 
 def add_to_manifest(repos, fallback_branch=None):
-    lm = load_manifest(custom_local_manifest)
-    mlm = load_manifest(default_manifest)
-    arrowm = load_manifest(arrow_manifest)
-    halm = load_manifest(hals_manifest)
+    lm = load_manifest(kraken_local_manifest)
 
     for repo in repos:
         repo_name = repo['repository']
-        repo_target = repo['target_path']
+        repo_path = repo['target_path']
         if 'branch' in repo:
-            repo_branch = repo['branch']
+            repo_branch=repo['branch']
         else:
-            repo_branch = custom_default_revision
-
+            repo_branch=kraken_default_revision
         if 'remote' in repo:
-            repo_remote = repo['remote']
-        else:
-            repo_remote = org_manifest
+            repo_remote=repo['remote']
+        elif "/" not in repo_name:
+            repo_remote=org_manifest
+        elif "/" in repo_name:
+            repo_remote="github"
 
-        if is_in_manifest(repo_target):
-            print('already exists: %s' % repo_target)
+        if is_in_manifest(repo_path):
+            print('already exists: %s' % repo_path)
             continue
 
-        if repo_remote is None:
-            repo_remote = "github"
-
-        if "/" not in repo_name and repo_remote is not org_manifest:
-            repo_name = os.path.join(org_display, repo_name)
-
-        existing_m_project = None
-        if exists_in_tree(mlm, repo_target) != None:
-            existing_m_project = exists_in_tree(mlm, repo_target)
-        elif exists_in_tree(arrowm, repo_target) != None:
-            existing_m_project = exists_in_tree(arrowm, repo_target)
-        elif exists_in_tree(halm, repo_target) != None:
-            existing_m_project = exists_in_tree(halm, repo_target)
-
-        if existing_m_project != None:
-            if existing_m_project.attrib['path'] == repo['target_path']:
-                print(
-                    '%s already exists in main manifest, replacing with new dep' % repo_name)
-                lm.append(ElementTree.Element("remove-project", attrib={
-                    "name": existing_m_project.attrib['name']
-                }))
-
-        print('Adding dependency: %s -> %s' % (repo_name, repo_target))
+        print('Adding dependency:\nRepository: %s\nBranch: %s\nRemote: %s\nPath: %s\n' % (repo_name, repo_branch,repo_remote, repo_path))
 
         project = ElementTree.Element(
             "project",
-            attrib={"path": repo_target,
+            attrib={"path": repo_path,
                     "remote": repo_remote,
                     "name": "%s" % repo_name}
         )
+
+        clone_depth = os.getenv('ROOMSERVICE_CLONE_DEPTH')
+        if clone_depth:
+            project.set('clone-depth', clone_depth)
 
         if repo_branch is not None:
             project.set('revision', repo_branch)
@@ -231,16 +160,18 @@ def add_to_manifest(repos, fallback_branch=None):
             project.set('revision', fallback_branch)
         else:
             print("Using default branch for %s" % repo_name)
+        if 'clone-depth' in repo:
+            print("Setting clone-depth to %s for %s" % (repo['clone-depth'], repo_name))
+            project.set('clone-depth', repo['clone-depth'])
         lm.append(project)
 
     indent(lm)
     raw_xml = "\n".join(('<?xml version="1.0" encoding="UTF-8"?>',
                          ElementTree.tostring(lm).decode()))
 
-    f = open(custom_local_manifest, 'w')
+    f = open(kraken_local_manifest, 'w')
     f.write(raw_xml)
     f.close()
-
 
 _fetch_dep_cache = []
 
@@ -253,13 +184,13 @@ def fetch_dependencies(repo_path, fallback_branch=None):
 
     print('Looking for dependencies')
 
-    dep_p = '/'.join((repo_path, custom_dependencies))
+    dep_p = '/'.join((repo_path, kraken_dependencies))
     if os.path.exists(dep_p):
         with open(dep_p) as dep_f:
             dependencies = json.load(dep_f)
     else:
         dependencies = {}
-        debug('Dependencies file not found, bailing out.')
+        print('%s has no additional dependencies.' % repo_path)
 
     fetch_list = []
     syncable_repos = []
@@ -267,20 +198,20 @@ def fetch_dependencies(repo_path, fallback_branch=None):
     for dependency in dependencies:
         if not is_in_manifest(dependency['target_path']):
             if not dependency.get('branch'):
-                dependency['branch'] = (get_revision() or
-                                        custom_default_revision)
+                dependency['branch'] = kraken_default_revision
 
             fetch_list.append(dependency)
             syncable_repos.append(dependency['target_path'])
+        else:
+            print("Dependency already present in manifest: %s => %s" % (dependency['repository'], dependency['target_path']))
 
     if fetch_list:
-        print('Adding dependencies to manifest')
+        print('Adding dependencies to manifest\n')
         add_to_manifest(fetch_list, fallback_branch)
 
     if syncable_repos:
         print('Syncing dependencies')
-        os.system('repo sync --force-sync --no-tags --current-branch --no-clone-bundle %s' %
-                  ' '.join(syncable_repos))
+        os.system('repo sync --force-sync --no-tags --current-branch --no-clone-bundle %s' % ' '.join(syncable_repos))
 
     for deprepo in syncable_repos:
         fetch_dependencies(deprepo)
@@ -301,28 +232,12 @@ def detect_revision(repo):
     add_auth(githubreq)
     result = json.loads(urllib.request.urlopen(githubreq).read().decode())
 
-    calc_revision = get_revision()
-    print("Calculated revision: %s" % calc_revision)
+    print("Calculated revision: %s" % kraken_default_revision)
 
-    if has_branch(result, calc_revision):
-        return calc_revision
+    if has_branch(result, kraken_default_revision):
+        return kraken_default_revision
 
-    fallbacks = os.getenv('ROOMSERVICE_BRANCHES', '').split()
-    for fallback in fallbacks:
-        if has_branch(result, fallback):
-            print("Using fallback branch: %s" % fallback)
-            return fallback
-
-    if has_branch(result, custom_default_revision):
-        print("Falling back to custom revision: %s"
-              % custom_default_revision)
-        return custom_default_revision
-
-    print("Branches found:")
-    for branch in result:
-        print(branch['name'])
-    print("Use the ROOMSERVICE_BRANCHES environment variable to "
-          "specify a list of fallback branches.")
+    print("Branch %s not found" % kraken_default_revision)
     sys.exit()
 
 
@@ -344,7 +259,7 @@ def main():
         if repo_path:
             fetch_dependencies(repo_path)
         else:
-            print("Trying dependencies-only mode on a"
+            print("Trying dependencies-only mode on a "
                   "non-existing device tree?")
         sys.exit()
 
@@ -372,21 +287,20 @@ def main():
     for repository in repositories:
         repo_name = repository['name']
 
-        if not (repo_name.startswith("android_device_") and
+        if not (repo_name.startswith("device_") and
                 repo_name.endswith("_" + device)):
             continue
         print("Found repository: %s" % repository['name'])
 
         fallback_branch = detect_revision(repository)
-        manufacturer = repo_name[15:-(len(device)+1)]
+        manufacturer = repo_name[7:-(len(device)+1)]
         repo_path = "device/%s/%s" % (manufacturer, device)
         adding = [{'repository': repo_name, 'target_path': repo_path}]
 
         add_to_manifest(adding, fallback_branch)
 
         print("Syncing repository to retrieve project.")
-        os.system(
-            'repo sync --force-sync --no-clone-bundle --current-branch --no-tags %s' % repo_path)
+        os.system('repo sync --force-sync --no-tags --current-branch --no-clone-bundle %s' % repo_path)
         print("Repository synced!")
 
         fetch_dependencies(repo_path, fallback_branch)
@@ -396,8 +310,7 @@ def main():
     print("Repository for %s not found in the %s Github repository list."
           % (device, org_display))
     print("If this is in error, you may need to manually add it to your "
-          "%s" % custom_local_manifest)
-
+          "%s" % kraken_local_manifest)
 
 if __name__ == "__main__":
     main()
