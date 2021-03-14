@@ -1,5 +1,5 @@
 ui_print(" =============================================");
-ui_print("    ArrowOS overlays package");
+ui_print("    Kraken overlays package");
 ui_print(" =============================================");
 ui_print(" ");
 sleep(1);
@@ -13,6 +13,6 @@ package_extract_dir("system", "/system");
 sleep(1);
 ui_print(" ");
 ui_print("             Done.          ");
-ui_print("           ~ArrowOS          ");
+ui_print("           ~Kraken          ");
 unmount("/system");
 sleep(1)
