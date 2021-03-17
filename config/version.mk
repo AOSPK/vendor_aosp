@@ -23,7 +23,7 @@ KRAKEN_VANILLA ?= false
 ifeq ($(KRAKEN_VANILLA), true)
     KRAKEN_BUILD_ZIP_TYPE := Vanilla
 else
-    $(call inherit-product, vendor/gapps/common/common-vendor.mk)
+    $(call inherit-product, vendor/gapps/gms_full.mk)
     KRAKEN_BUILD_ZIP_TYPE := GApps
 endif
 
