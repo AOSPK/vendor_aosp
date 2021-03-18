@@ -158,6 +158,9 @@
     <!-- the number of the max cached processes in the system. -->
     <integer name="config_customizedMaxCachedProcesses">64</integer>
 
+    <!-- Face detection for screen auto rotation -->
+    <string name="config_defaultRotationResolverService" translatable="false">com.google.android.as/com.google.android.apps.miphone.aiai.app.AiAiRotationResolverService</string>
+
     <!-- Exempt AiAi from privacy indicators -->
     <string name="config_systemAmbientAudioIntelligence">com.google.android.as</string>
     <string name="config_systemAudioIntelligence">com.google.android.as</string>
