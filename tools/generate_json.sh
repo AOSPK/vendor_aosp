@@ -24,9 +24,7 @@ function generate_json() {
   echo '    }'
 }
 
-if [ $type == "UNOFFICIAL" ];then
-  echo
-else
+if [ $type == "OFFICIAL" ];then
   generate_json > $zip_path.json
   echo
   echo 'Information for official maintainers:'
