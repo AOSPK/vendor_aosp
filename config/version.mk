@@ -41,7 +41,6 @@ endif
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
   ro.kraken.version=$(KRAKEN_VERSION) \
   ro.kraken.releasetype=$(KRAKEN_BUILD_TYPE) \
-  ro.kraken.ziptype=$(KRAKEN_BUILD_ZIP_TYPE) \
   ro.kraken.device=$(CURRENT_DEVICE) \
   ro.modversion=$(KRAKEN_MOD_VERSION)
 
