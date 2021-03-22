@@ -21,6 +21,7 @@ PRODUCT_PACKAGES += \
     ExactCalculator \
     LatinIME \
     Launcher3QuickStep \
+    GCamGo \
     messaging \
     SimpleGallery \
     Stk \
