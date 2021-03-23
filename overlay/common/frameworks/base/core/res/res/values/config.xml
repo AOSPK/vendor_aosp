@@ -80,7 +80,7 @@
     <dimen name="config_buttonCornerRadius">4.0dip</dimen>
 
     <!-- Corner radius of system dialogs -->
-    <dimen name="config_dialogCornerRadius">8.0dip</dimen>
+    <dimen name="config_dialogCornerRadius">28dp</dimen>
 
     <!-- The amount to scale fullscreen snapshots for Overview and snapshot starting windows. -->
     <item format="float" type="dimen" name="config_fullTaskSnapshotScale">0.8</item>
@@ -168,4 +168,10 @@
     <string name="config_systemTextIntelligence">com.google.android.as</string>
     <string name="config_systemUiIntelligence">com.google.android.as</string>
     <string name="config_systemVisualIntelligence">com.google.android.as</string>
+
+    <!-- System-provided radius for the background view of app widgets. The resolved value of this resource may change at runtime. -->
+    <dimen name="system_app_widget_background_radius">28dp</dimen>
+    <!-- System-provided radius for inner views on app widgets. The resolved value of this resource may change at runtime. -->
+    <dimen name="system_app_widget_inner_radius">20dp</dimen>
+
 </resources>
