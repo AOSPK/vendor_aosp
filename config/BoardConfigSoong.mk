@@ -15,13 +15,13 @@ EXPORT_TO_SOONG := \
 # Documentation here:
 # https://github.com/LineageOS/android_build_soong/commit/8328367c44085b948c003116c0ed74a047237a69
 
-SOONG_CONFIG_NAMESPACES += lineageVarsPlugin
+SOONG_CONFIG_NAMESPACES += customVarsPlugin
 
-SOONG_CONFIG_lineageVarsPlugin :=
+SOONG_CONFIG_customVarsPlugin :=
 
 define addVar
-  SOONG_CONFIG_lineageVarsPlugin += $(1)
-  SOONG_CONFIG_lineageVarsPlugin_$(1) := $$(subst ",\",$$($1))
+  SOONG_CONFIG_customVarsPlugin += $(1)
+  SOONG_CONFIG_customVarsPlugin_$(1) := $$(subst ",\",$$($1))
 endef
 
 $(foreach v,$(EXPORT_TO_SOONG),$(eval $(call addVar,$(v))))
@@ -45,8 +45,8 @@ ifneq ($(TARGET_FORCE_BUILD_FINGERPRINT),)
 SOONG_CONFIG_customGlobalVars += force_build_fingerprint
 endif
 
-SOONG_CONFIG_NAMESPACES += lineageNvidiaVars
-SOONG_CONFIG_lineageNvidiaVars += \
+SOONG_CONFIG_NAMESPACES += customNvidiaVars
+SOONG_CONFIG_customNvidiaVars += \
     uses_nv_enhancements
 
 SOONG_CONFIG_NAMESPACES += customQcomVars
@@ -74,7 +74,7 @@ SOONG_CONFIG_customGlobalVars_has_legacy_camera_hal1 := $(TARGET_HAS_LEGACY_CAME
 SOONG_CONFIG_customGlobalVars_has_memfd_backport := $(TARGET_HAS_MEMFD_BACKPORT)
 SOONG_CONFIG_customGlobalVars_ignores_ftp_pptp_conntrack_failure := $(TARGET_IGNORES_FTP_PPTP_CONNTRACK_FAILURE)
 SOONG_CONFIG_customGlobalVars_needs_netd_direct_connect_rule := $(TARGET_NEEDS_NETD_DIRECT_CONNECT_RULE)
-SOONG_CONFIG_lineageNvidiaVars_uses_nv_enhancements := $(NV_ANDROID_FRAMEWORK_ENHANCEMENTS)
+SOONG_CONFIG_customNvidiaVars_uses_nv_enhancements := $(NV_ANDROID_FRAMEWORK_ENHANCEMENTS)
 SOONG_CONFIG_customQcomVars_legacy_hw_disk_encryption := $(TARGET_LEGACY_HW_DISK_ENCRYPTION)
 SOONG_CONFIG_customQcomVars_should_wait_for_qsee := $(TARGET_KEYMASTER_WAIT_FOR_QSEE)
 SOONG_CONFIG_customQcomVars_supports_audio_accessory := $(TARGET_QTI_USB_SUPPORTS_AUDIO_ACCESSORY)

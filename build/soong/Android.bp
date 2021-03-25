@@ -1,8 +1,8 @@
 // LineageOS soong configs
 
 bootstrap_go_package {
-    name: "soong-lineage-generator",
-    pkgPath: "lineage/soong/generator",
+    name: "soong-custom-generator",
+    pkgPath: "custom/soong/generator",
     deps: [
         "blueprint",
         "blueprint-pathtools",
@@ -17,7 +17,7 @@ bootstrap_go_package {
     pluginFor: ["soong_build"],
 }
 
-lineage_generator {
+custom_generator {
     name: "generated_kernel_includes",
 
     // The headers make command
@@ -316,7 +316,7 @@ camera_parameter_library {
 soong_config_module_type {
     name: "nvidia_enhancements",
     module_type: "cc_defaults",
-    config_namespace: "lineageNvidiaVars",
+    config_namespace: "customNvidiaVars",
     bool_variables: ["uses_nvidia_enhancements"],
     properties: ["cppflags"],
 }
