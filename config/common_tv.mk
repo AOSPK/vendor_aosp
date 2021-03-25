@@ -8,7 +8,7 @@ $(call inherit-product, device/custom/atv/custom_atv.mk)
 PRODUCT_PACKAGES += \
     LeanbackIME
 
-# Lineage packages
+# Packages
 PRODUCT_PACKAGES += \
     TvCustomizer
 
