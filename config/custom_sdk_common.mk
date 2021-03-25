@@ -8,7 +8,7 @@ PRODUCT_COPY_FILES += \
     vendor/aosp/config/permissions/org.lineageos.settings.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/org.lineageos.settings.xml \
     vendor/aosp/config/permissions/org.lineageos.trust.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/org.lineageos.trust.xml
 
-# Lineage Platform Library
+# Platform Library
 PRODUCT_PACKAGES += \
     org.lineageos.platform-res \
     org.lineageos.platform
