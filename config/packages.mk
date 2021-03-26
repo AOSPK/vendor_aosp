@@ -19,6 +19,7 @@ PRODUCT_PACKAGES += \
     SimpleCalendar \
     DuckDuckGo \
     ExactCalculator \
+    GCamGo \
     LatinIME \
     Launcher3QuickStep \
     messaging \
