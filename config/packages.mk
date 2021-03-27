@@ -25,7 +25,6 @@ PRODUCT_PACKAGES += \
     messaging \
     SimpleGallery \
     Stk \
-    stats \
     ThemePicker \
     KrakenThemesStub \
     OmniJaws \
