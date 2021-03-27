@@ -21,7 +21,7 @@ PRODUCT_PACKAGE_OVERLAYS += \
     vendor/aosp/overlay/themes/KrakenIcons
 
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
-    vendor/aosp/overlay/common \
+    vendor/aosp/overlay/common
 
 # Dex preopt
 PRODUCT_DEXPREOPT_SPEED_APPS += \
