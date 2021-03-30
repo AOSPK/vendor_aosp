@@ -19,7 +19,7 @@ KRAKEN_BUILD_TYPE ?= UNOFFICIAL
 KRAKEN_BUILD_ZIP_TYPE ?= GApps
 KRAKEN_BUILD_DATE = $(shell date +"%Y%m%d-%H%M")
 KRAKEN_VANILLA ?= false
-KRAKEN_BETA = true
+KRAKEN_BETA := false
 
 ifeq ($(KRAKEN_VANILLA), true)
     KRAKEN_BUILD_ZIP_TYPE := Vanilla
