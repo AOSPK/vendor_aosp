@@ -14,4 +14,5 @@
 
 PRODUCT_PACKAGES += \
     KrakenFrameworksOverlay \
+    KrakenSettingsProviderOverlay \
     KrakenSystemUIOverlay
