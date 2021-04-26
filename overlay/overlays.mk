@@ -13,4 +13,5 @@
 # limitations under the License.
 
 PRODUCT_PACKAGES += \
-    KrakenFrameworksOverlay
+    KrakenFrameworksOverlay \
+    KrakenSystemUIOverlay
