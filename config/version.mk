@@ -12,7 +12,7 @@ VANILLA_BUILD ?= false
 ifeq ($(VANILLA_BUILD), true)
     CUSTOM_APPS_VERSION := Vanilla
 else
-    $(call inherit-product, vendor/google/gms/config.mk)
+    $(call inherit-product, vendor/gapps/common/common-vendor.mk)
     CUSTOM_APPS_VERSION := GApps
 endif
 
