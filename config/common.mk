@@ -203,5 +203,8 @@ PRODUCT_EXTRA_RECOVERY_KEYS += \
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
 -include vendor/aosp/config/partner_gms.mk
 
+# Pixel Features
+$(call inherit-product, vendor/google/pixel/config.mk)
+
 -include vendor/aosp/config/version.mk
 -include vendor/aosp/config/fonts.mk
