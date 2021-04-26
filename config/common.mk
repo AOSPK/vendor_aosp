@@ -212,3 +212,4 @@ PRODUCT_PACKAGES += \
 
 -include vendor/aosp/config/version.mk
 -include vendor/aosp/config/fonts.mk
+-include vendor/aosp/overlay/overlays.mk
