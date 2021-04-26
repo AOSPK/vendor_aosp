@@ -206,5 +206,9 @@ PRODUCT_EXTRA_RECOVERY_KEYS += \
 # Pixel Features
 $(call inherit-product, vendor/google/pixel/config.mk)
 
+# Camera
+PRODUCT_PACKAGES += \
+    GoogleCameraGo
+
 -include vendor/aosp/config/version.mk
 -include vendor/aosp/config/fonts.mk
