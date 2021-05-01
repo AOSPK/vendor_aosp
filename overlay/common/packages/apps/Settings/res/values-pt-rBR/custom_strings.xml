@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2021 The Kraken Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+  <!-- Back Gestures -->
+  <string name="smallest_tick_label">Fora</string>
+  <string name="greatest_tick_label">Meia tela</string>
+  <string name="gesture_back_deadzone_label">Zona morta</string>
+  <string name="back_sensitivity_dialog_message_cust">\nUse a primeira e a segunda barra de busca para configurar a sensibilidade do golpe para trás, a última barra de busca para definir uma área morta no topo da tela onde o golpe não pode ser acionado, para evitar conflitos com gestos no aplicativo.</string>
+
+  <!-- Three-fingers-swipe to screenshot -->
+  <string name="three_finger_gesture">Deslize para a captura de tela</string>
+  <string name="three_finger_gesture_summary">Deslize para baixo com três dedos para fazer uma captura de tela</string>
+
+  <!-- Horizon Light -->
+  <string name="pulse_ambient_light_title">Notificações de borda</string>
+  <string name="pulse_ambient_light_summary">Ilumine as bordas laterais da tela no pulso de notificação</string>
+  <string name="ambient_notification_light_accent_title">Cor de destaque do sistema</string>
+  <string name="ambient_notification_light_color_automatic_title">Cor de notificação</string>
+  <string name="pulse_ambient_light_color">Ao pulsar, use</string>
+
+  <!-- Translucent notifications -->
+  <string name="translucent_lockscreen_notifications_bg_title">Fundo de notificações translúcido</string>
+
+  <!-- Cycle through ringer modes gesture -->
+  <string name="prevent_ringing_option_cycle">Alternar entre os modos</string>
+  <string name="prevent_ringing_option_cycle_summary">Ativado (alternar entre os modos)</string>
+
+  <!-- Adaptive Playback -->
+  <string name="adaptive_playback_screen_title">Reprodução inteligente</string>
+  <string name="adaptive_playback_disabled_summary">Desativado</string>
+  <string name="adaptive_playback_timeout_title">Tempo limite de</string>
+  <string name="adaptive_playback_timeout_none">Ilimitado</string>
+  <string name="adaptive_playback_timeout_none_summary">Ativado (sem limite de tempo)</string>
+  <string name="adaptive_playback_timeout_30_secs">30 segundos</string>
+  <string name="adaptive_playback_timeout_30_secs_summary">Ativado (30 segundos)</string>
+  <string name="adaptive_playback_timeout_1_min">1 minuto</string>
+  <string name="adaptive_playback_timeout_1_min_summary">Ativado (1 minuto)</string>
+  <string name="adaptive_playback_timeout_2_min">2 minutos</string>
+  <string name="adaptive_playback_timeout_2_min_summary">Ativado (2 minutos)</string>
+  <string name="adaptive_playback_timeout_5_min">5 minutos</string>
+  <string name="adaptive_playback_timeout_5_min_summary">Ativado (5 minutos)</string>
+  <string name="adaptive_playback_timeout_10_min">10 minutos</string>
+  <string name="adaptive_playback_timeout_10_min_summary">Ativado (10 minutos)</string>
+</resources>
