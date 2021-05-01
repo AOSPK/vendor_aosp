@@ -71,9 +71,6 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 # Include AOSP audio files
 include vendor/aosp/config/aosp_audio.mk
 
-# Include audio files
-include vendor/aosp/config/custom_audio.mk
-
 ifneq ($(TARGET_DISABLE_CUSTOM_SDK), true)
 # SDK
 include vendor/aosp/config/custom_sdk_common.mk
