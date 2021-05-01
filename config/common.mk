@@ -94,7 +94,7 @@ PRODUCT_RESTRICT_VENDOR_FILES := false
 
 # Bootanimation
 PRODUCT_COPY_FILES += \
-    vendor/aosp/media/bootanimation.zip:system/media/bootanimation.zip
+    vendor/aosp/prebuilt/common/media/bootanimation.zip:system/media/bootanimation.zip
 
 # AOSP packages
 PRODUCT_PACKAGES += \
