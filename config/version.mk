@@ -11,6 +11,8 @@ VANILLA_BUILD ?= false
 # GMS
 ifeq ($(VANILLA_BUILD), true)
     CUSTOM_APPS_VERSION := Vanilla
+    PRODUCT_PACKAGES += \
+        Jelly
 else
     $(call inherit-product, vendor/gapps/common/common-vendor.mk)
     CUSTOM_APPS_VERSION := GApps
