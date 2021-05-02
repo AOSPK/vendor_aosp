@@ -56,4 +56,8 @@
   <string name="adaptive_playback_timeout_5_min_summary">Ativado (5 minutos)</string>
   <string name="adaptive_playback_timeout_10_min">10 minutos</string>
   <string name="adaptive_playback_timeout_10_min_summary">Ativado (10 minutos)</string>
+
+  <!-- Screen off fod -->
+  <string name="fod_gesture_title">Impressão digital com tela desligada</string>
+  <string name="fod_gesture_summary">Permite desbloquear o dispositivo sem ter que acordar a tela primeiro</string>
 </resources>
