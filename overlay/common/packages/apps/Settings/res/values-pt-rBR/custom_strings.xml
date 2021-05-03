@@ -56,4 +56,24 @@
   <string name="adaptive_playback_timeout_5_min_summary">Ativado (5 minutos)</string>
   <string name="adaptive_playback_timeout_10_min">10 minutos</string>
   <string name="adaptive_playback_timeout_10_min_summary">Ativado (10 minutos)</string>
+
+    <!-- App Lock -->
+    <string name="applock_title">App locker</string>
+    <string name="applock_locked">Bloqueado</string>
+    <string name="applock_unlocked">Desbloqueado</string>
+    <string name="applock_locked_apps">Aplicativos bloqueados</string>
+    <string name="applock_unlocked_apps">Aplicativos desbloqueados</string>
+    <string name="applock_show_only_on_wake">Autentique apenas uma vez</string>
+    <string name="applock_show_only_on_wake_on_summary">Depois de autenticado, um aplicativo permanece desbloqueado até que a tela desligue</string>
+    <string name="applock_show_only_on_wake_off_summary">Depois de autenticado, um aplicativo permanece desbloqueado por 15 segundos após sair</string>
+    <string name="applock_notification_info">Você pode mostrar/ocultar o conteúdo da notificação por aplicativo clicando no ícone de notificação mostrado nas preferências de cada aplicativo bloqueado</string>
+    <string name="applock_show_notif">Mostrando conteúdo de notificação</string>
+    <string name="applock_hide_notif">Escondendo o conteúdo da notificação</string>
+    <string name="applock_setup">Configurar app locker</string>
+    <string name="applock_overlay_summary">Este recurso não está disponível porque este aplicativo está bloqueado</string>
+    <plurals name="applock_summary">
+        <item quantity="one">1 aplicativo bloqueado</item>
+        <item quantity="other">%d aplicativos bloqueados</item>
+    </plurals>
+    <string name="keywords_applock_settings">applock, applocker, app lock, app locker</string>
 </resources>
