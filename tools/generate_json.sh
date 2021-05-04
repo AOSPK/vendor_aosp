@@ -11,7 +11,7 @@ apps=$(bash -c "cut -d'=' -f2 <<< $(grep 'ro.custom.apps.version' $(dirname $zip
 zip=$(basename "$zip_path")
 md5=$(cat "$zip_path.md5sum" | cut -d' ' -f1)
 size=$(ls -lat $zip_path | cut -d ' ' -f 5)
-url="https://download.aospk.org/$android/$device/$apps/$zip"
+url="https://master.dl.sourceforge.net/project/aospk/$android/$device/$apps/$zip"
 
 function generate_json() {
   echo '    {'
