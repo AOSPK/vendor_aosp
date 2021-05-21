@@ -18,6 +18,12 @@ ifneq ($(TARGET_ENABLE_ADB), true)
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += ro.adb.secure=1
 endif
 
+# AOSP recovery flashing
+ifeq ($(TARGET_USES_AOSP_RECOVERY),true)
+ADDITIONAL_BUILD_PROPERTIES += \
+    persist.sys.recovery_update=true
+endif
+
 # Backup Tool
 PRODUCT_COPY_FILES += \
     vendor/aosp/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
