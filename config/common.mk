@@ -203,6 +203,11 @@ PRODUCT_EXTRA_RECOVERY_KEYS += \
 # Pixel Features
 $(call inherit-product, vendor/google/pixel/config.mk)
 
+# Blurs
+PRODUCT_SYSTEM_EXT_PROPERTIES += \
+    ro.sf.blurs_are_expensive=1 \
+    ro.surface_flinger.supports_background_blur=1
+
 # Camera
 PRODUCT_PACKAGES += \
     GoogleCameraGo
