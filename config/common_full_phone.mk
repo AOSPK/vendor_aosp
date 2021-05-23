@@ -5,7 +5,7 @@ $(call inherit-product, vendor/aosp/config/common_full.mk)
 PRODUCT_PACKAGES += \
     LatinIME
 
-# Include Lineage LatinIME dictionaries
+# Include LatinIME dictionaries
 PRODUCT_PACKAGE_OVERLAYS += vendor/aosp/overlay/dictionaries
 
 $(call inherit-product, vendor/aosp/config/telephony.mk)

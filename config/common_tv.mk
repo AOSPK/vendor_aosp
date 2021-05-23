@@ -10,6 +10,6 @@ PRODUCT_PACKAGES += \
 
 # Lineage packages
 PRODUCT_PACKAGES += \
-    Customizer
+    TvCustomizer
 
 DEVICE_PACKAGE_OVERLAYS += vendor/aosp/overlay/tv
