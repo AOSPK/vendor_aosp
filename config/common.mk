@@ -93,8 +93,7 @@ PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
 PRODUCT_RESTRICT_VENDOR_FILES := false
 
 # Bootanimation
-PRODUCT_COPY_FILES += \
-    vendor/aosp/prebuilt/common/media/bootanimation.zip:system/media/bootanimation.zip
+$(call inherit-product, vendor/aosp/config/bootanimation.mk)
 
 # AOSP packages
 PRODUCT_PACKAGES += \
