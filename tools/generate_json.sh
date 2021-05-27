@@ -14,24 +14,26 @@ size=$(ls -lat $zip_path | cut -d ' ' -f 5)
 url="https://master.dl.sourceforge.net/project/aospk/$android/$device/$apps/$zip"
 
 function generate_json() {
-  echo '    {'
-  echo '      "datetime": "'$datetime'",'
-  echo '      "filename": "'$zip'",'
-  echo '      "id": "'$md5'",'
-  echo '      "size": "'$size'",'
-  echo '      "url": "'$url'",'
-  echo '      "romtype": "'$apps'",'
-  echo '      "android": "'$android'",'
-  echo '      "version": "'$version'"'
-  echo '    }'
+  echo "    {"
+  echo "      \"datetime\": \""${datetime}"\","
+  echo "      \"filename\": \""${zip}"\","
+  echo "      \"id\": \""${md5}"\","
+  echo "      \"size\": \""${size}"\","
+  echo "      \"url\": \""${url}"\","
+  echo "      \"romtype\": \""${apps}"\","
+  echo "      \"android\": \""${android}"\","
+  echo "      \"version\": \""${version}"\""
+  echo "    }"
 }
 
-if [ $type == "OFFICIAL" ];then
+if [ $type = "OFFICIAL" ];then
   generate_json > $zip_path.json
   echo
-  echo 'Information for official maintainers:'
-  echo 'After testing the build, publish to SourceForge'
-  echo 'Submit your build to the AOSPK/official_devices repository with the json content below.'
+  echo "Information for official maintainers:"
+  echo "After testing the build, publish to SourceForge"
+  echo "The right way is to specify the android version, the device's codename and the type of construction, example:"
+  echo "${android}/${device}/${apps}"
+  echo "Submit your build to the github.com/AOSPK/official_devices repository with the json content below."
   echo
   cat $zip_path.json
   echo
