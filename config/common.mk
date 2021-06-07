@@ -188,10 +188,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.storage_manager.enabled=true
 
-# Media
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    media.recorder.show_manufacturer_and_model=true
-
 # These packages are excluded from user builds
 PRODUCT_PACKAGES_DEBUG += \
     procmem
@@ -259,9 +255,17 @@ PRODUCT_PRODUCT_PROPERTIES += \
 
 # Google Play services configuration
 PRODUCT_PRODUCT_PROPERTIES += \
-    ro.com.google.clientidbase=android-google \
+    dalvik.vm.debug.alloc=0 \
+    keyguard.no_require_sim=true \
+    media.recorder.show_manufacturer_and_model=true \
+    net.tethering.noprovisioning=true \
+    persist.sys.disable_rescue=true \
+    persist.sys.theme.accentcolor=-1 \
+    ro.atrace.core.services=com.google.android.gms,com.google.android.gms.ui,com.google.android.gms.persistent \
+    ro.carrier=unknown \
+    ro.com.android.dateformat=MM-dd-yyyy \
     ro.error.receiver.system.apps=com.google.android.gms \
-    ro.atrace.core.services=com.google.android.gms,com.google.android.gms.ui,com.google.android.gms.persistent
+    ro.opa.eligible_device=true
 
 # Volume Steps
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
