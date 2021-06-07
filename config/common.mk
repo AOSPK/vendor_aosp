@@ -74,6 +74,12 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 # Include AOSP audio files
 include vendor/aosp/config/aosp_audio.mk
 
+# AOSP recovery flashing
+ifeq ($(TARGET_USES_AOSP_RECOVERY), true)
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    persist.sys.recovery_update=true
+endif
+
 ifneq ($(TARGET_DISABLE_CUSTOM_SDK), true)
 # SDK
 include vendor/aosp/config/custom_sdk_common.mk
