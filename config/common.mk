@@ -290,3 +290,8 @@ $(call inherit-product, vendor/aosp/config/version.mk)
 
 # Pixel Features
 $(call inherit-product, vendor/google/pixel/config.mk)
+
+# APEX
+# Enable updating of APEXes
+$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
+$(call inherit-product, vendor/aosp/config/apex.mk)
