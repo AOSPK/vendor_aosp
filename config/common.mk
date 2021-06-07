@@ -106,7 +106,7 @@ endif
 
 # TWRP
 ifeq ($(WITH_TWRP),true)
-include vendor/aosp/config/twrp.mk
+RECOVERY_VARIANT := twrp
 endif
 
 # Do not include art debug targets
