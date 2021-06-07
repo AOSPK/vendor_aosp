@@ -28,3 +28,12 @@ else
     ADDITIONAL_BUILD_PROPERTIES += \
         ro.custom.apps.version=gapps
 endif
+
+ifeq ($(CUSTOM_BUILD_TYPE), OFFICIAL)
+    include vendor/aosp/build/core/check_maintainer.mk
+    ADDITIONAL_BUILD_PROPERTIES += \
+        ro.custom.maintainer=$(CUSTOM_MAINTAINER)
+else
+    ADDITIONAL_BUILD_PROPERTIES += \
+        ro.custom.maintainer=UNOFFICIAL
+endif
