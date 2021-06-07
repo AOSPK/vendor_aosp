@@ -246,6 +246,11 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.error.receiver.system.apps=com.google.android.gms \
     ro.atrace.core.services=com.google.android.gms,com.google.android.gms.ui,com.google.android.gms.persistent
 
+# Volume Steps
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.config.bt_sco_vol_steps=30 \
+    ro.config.media_vol_steps=30
+
 # Blurs
 PRODUCT_SYSTEM_EXT_PROPERTIES += \
     ro.sf.blurs_are_expensive=1 \
