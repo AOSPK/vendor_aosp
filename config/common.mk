@@ -214,6 +214,12 @@ PRODUCT_EXTRA_RECOVERY_KEYS += \
 # Pixel Features
 $(call inherit-product, vendor/google/pixel/config.mk)
 
+# Gboard configuration
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.com.google.ime.bs_theme=true \
+    ro.com.google.ime.theme_id=5 \
+    ro.com.google.ime.system_lm_dir=/product/usr/share/ime/google/d3_lms
+
 # Blurs
 PRODUCT_SYSTEM_EXT_PROPERTIES += \
     ro.sf.blurs_are_expensive=1 \
