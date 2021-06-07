@@ -55,6 +55,11 @@ $(foreach f,$(wildcard vendor/aosp/prebuilt/common/etc/init/*.rc),\
 # Don't compile SystemUITests
 EXCLUDE_SYSTEMUI_TESTS := true
 
+# Strip the local variable table and the local variable type table to reduce
+# the size of the system image. This has no bearing on stack traces, but will
+# leave less information available via JDWP.
+PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
+
 # Enable Android Beam on all targets
 PRODUCT_COPY_FILES += \
     vendor/aosp/config/permissions/android.software.nfc.beam.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.software.nfc.beam.xml
