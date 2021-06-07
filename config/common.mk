@@ -103,7 +103,7 @@ endif
 
 # TWRP
 ifeq ($(WITH_TWRP),true)
-include vendor/aosp/config/twrp.mk
+RECOVERY_VARIANT := twrp
 endif
 
 # Do not include art debug targets
@@ -227,7 +227,6 @@ PRODUCT_EXTRA_RECOVERY_KEYS += \
 -include vendor/custom-priv/keys/keys.mk
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
--include vendor/aosp/config/partner_gms.mk
 
 # Pixel Features
 $(call inherit-product, vendor/google/pixel/config.mk)
