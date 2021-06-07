@@ -228,9 +228,6 @@ PRODUCT_EXTRA_RECOVERY_KEYS += \
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
 
-# Pixel Features
-$(call inherit-product, vendor/google/pixel/config.mk)
-
 # Gboard configuration
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.com.google.ime.bs_theme=true \
@@ -290,3 +287,6 @@ PRODUCT_COPY_FILES += \
 
 # Version
 $(call inherit-product, vendor/aosp/config/version.mk)
+
+# Pixel Features
+$(call inherit-product, vendor/google/pixel/config.mk)
