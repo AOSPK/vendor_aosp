@@ -52,14 +52,6 @@ PRODUCT_COPY_FILES += \
 $(foreach f,$(wildcard vendor/aosp/prebuilt/common/etc/init/*.rc),\
 	$(eval PRODUCT_COPY_FILES += $(f):$(TARGET_COPY_OUT_SYSTEM)/etc/init/$(notdir $f)))
 
-# Strip the local variable table and the local variable type table to reduce
-# the size of the system image. This has no bearing on stack traces, but will
-# leave less information available via JDWP.
-PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
-
-# Disable vendor restrictions
-PRODUCT_RESTRICT_VENDOR_FILES := false
-
 # Gestures
 ifneq ($(TARGET_USES_HARDWARE_KEYS),true)
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
