@@ -52,6 +52,9 @@ PRODUCT_COPY_FILES += \
 $(foreach f,$(wildcard vendor/aosp/prebuilt/common/etc/init/*.rc),\
 	$(eval PRODUCT_COPY_FILES += $(f):$(TARGET_COPY_OUT_SYSTEM)/etc/init/$(notdir $f)))
 
+# Don't compile SystemUITests
+EXCLUDE_SYSTEMUI_TESTS := true
+
 # Strip the local variable table and the local variable type table to reduce
 # the size of the system image. This has no bearing on stack traces, but will
 # leave less information available via JDWP.
@@ -227,7 +230,6 @@ PRODUCT_EXTRA_RECOVERY_KEYS += \
 -include vendor/custom-priv/keys/keys.mk
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
--include vendor/aosp/config/partner_gms.mk
 
 # Pixel Features
 $(call inherit-product, vendor/google/pixel/config.mk)
