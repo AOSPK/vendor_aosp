@@ -290,3 +290,6 @@ $(call inherit-product, vendor/aosp/config/version.mk)
 
 # Pixel Features
 $(call inherit-product, vendor/google/pixel/config.mk)
+
+# APEX
+$(call inherit-product, vendor/aosp/config/apex.mk)
