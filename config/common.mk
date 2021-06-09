@@ -207,9 +207,15 @@ PRODUCT_EXTRA_RECOVERY_KEYS += \
 $(call inherit-product, vendor/google/pixel/config.mk)
 
 # Blurs
-PRODUCT_SYSTEM_EXT_PROPERTIES += \
-    ro.sf.blurs_are_expensive=1 \
-    ro.surface_flinger.supports_background_blur=1
+ifneq (,$(filter msm8226 msm8610 msm8974 msm8992 msm8994 msm8909 msm8916 msm8937 msm8953 msm8996 msm8998 sdm660,$(TARGET_BOARD_PLATFORM)))
+    PRODUCT_SYSTEM_EXT_PROPERTIES += \
+        ro.sf.blurs_are_expensive=0 \
+        ro.surface_flinger.supports_background_blur=0
+else
+    PRODUCT_SYSTEM_EXT_PROPERTIES += \
+        ro.sf.blurs_are_expensive=1 \
+        ro.surface_flinger.supports_background_blur=1
+endif
 
 # Camera
 PRODUCT_PACKAGES += \
