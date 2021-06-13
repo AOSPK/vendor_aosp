@@ -218,4 +218,9 @@ PRODUCT_PACKAGES += \
     GoogleCameraGo
 
 -include vendor/aosp/config/version.mk
+
+# Custom Fonts
+TARGET_INCLUDE_CUSTOM_FONTS ?= true
+ifeq ($(TARGET_INCLUDE_CUSTOM_FONTS),true)
 -include vendor/aosp/config/fonts.mk
+endif
