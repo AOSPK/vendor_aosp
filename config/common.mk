@@ -199,9 +199,6 @@ PRODUCT_EXTRA_RECOVERY_KEYS += \
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
 -include vendor/aosp/config/partner_gms.mk
 
-# Pixel Features
-$(call inherit-product, vendor/google/pixel/config.mk)
-
 # Blurs
 ifneq (,$(filter msm8226 msm8610 msm8974 msm8992 msm8994 msm8909 msm8916 msm8937 msm8953 msm8996 msm8998 sdm660,$(TARGET_BOARD_PLATFORM)))
 PRODUCT_SYSTEM_EXT_PROPERTIES += \

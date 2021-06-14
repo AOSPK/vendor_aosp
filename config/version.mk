@@ -14,7 +14,7 @@ ifeq ($(VANILLA_BUILD), true)
     PRODUCT_PACKAGES += \
         Navik
 else
-    $(call inherit-product, vendor/gapps/common/common-vendor.mk)
+    $(call inherit-product, vendor/gapps/config.mk)
     CUSTOM_APPS_VERSION := GApps
 endif
 
