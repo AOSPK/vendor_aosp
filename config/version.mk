@@ -12,7 +12,7 @@ VANILLA_BUILD ?= false
 ifeq ($(VANILLA_BUILD), true)
     CUSTOM_APPS_VERSION := Vanilla
     PRODUCT_PACKAGES += \
-        Navik
+        KBrowser
 else
     TARGET_SUPPORTS_GOOGLE_RECORDER ?= true
     TARGET_INCLUDE_LIVE_WALLPAPERS ?= true
