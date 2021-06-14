@@ -14,7 +14,9 @@ ifeq ($(VANILLA_BUILD), true)
     PRODUCT_PACKAGES += \
         Navik
 else
-    $(call inherit-product, vendor/gapps/common/common-vendor.mk)
+    TARGET_SUPPORTS_GOOGLE_RECORDER ?= true
+    TARGET_INCLUDE_LIVE_WALLPAPERS ?= true
+    $(call inherit-product, vendor/gapps/config.mk)
     CUSTOM_APPS_VERSION := GApps
 endif
 
