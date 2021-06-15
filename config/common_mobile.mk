@@ -25,20 +25,6 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
     Launcher3QuickStep
 endif
 
-# Accents
-PRODUCT_PACKAGES += \
-    CustomBlackTheme \
-    CustomBlackAccent \
-    CustomBlueAccent \
-    CustomBrownAccent \
-    CustomCyanAccent \
-    CustomGreenAccent \
-    CustomOrangeAccent \
-    CustomPinkAccent \
-    CustomPurpleAccent \
-    CustomRedAccent \
-    CustomYellowAccent
-
 # Charger
 PRODUCT_PACKAGES += \
     charger_res_images \
@@ -47,7 +33,6 @@ PRODUCT_PACKAGES += \
 # Customizations
 PRODUCT_PACKAGES += \
     IconShapeSquareOverlay \
-    CustomNavigationBarNoHint \
     NavigationBarMode2ButtonOverlay
 
 # Media

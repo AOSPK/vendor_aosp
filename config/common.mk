@@ -110,7 +110,6 @@ PRODUCT_PACKAGES += \
 
 # Themes
 PRODUCT_PACKAGES += \
-    CustomThemesStub \
     ThemePicker
 
 # Config
@@ -218,10 +217,14 @@ endif
 PRODUCT_PACKAGES += \
     GoogleCameraGo
 
--include vendor/aosp/config/version.mk
-
 # Custom Fonts
 TARGET_INCLUDE_CUSTOM_FONTS ?= true
 ifeq ($(TARGET_INCLUDE_CUSTOM_FONTS),true)
 -include vendor/aosp/config/fonts.mk
 endif
+
+# Version
+-include vendor/aosp/config/version.mk
+
+# Version
+-include vendor/aosp/config/accents.mk
