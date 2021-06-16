@@ -214,9 +214,13 @@ PRODUCT_SYSTEM_EXT_PROPERTIES += \
     ro.surface_flinger.supports_background_blur=1
 endif
 
+
 # Camera
+TARGET_DISABLE_CAMERAGO ?= false
+ifneq ($(TARGET_DISABLE_CAMERAGO),true)
 PRODUCT_PACKAGES += \
     GoogleCameraGo
+endif
 
 -include vendor/aosp/config/version.mk
 
