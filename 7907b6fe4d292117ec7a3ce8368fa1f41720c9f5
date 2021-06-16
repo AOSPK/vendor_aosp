@@ -16,6 +16,23 @@
       "message": "This sounds interesting to me, however, I should go back to tracking Snap and Camera2 in our manifest",
       "revId": "7907b6fe4d292117ec7a3ce8368fa1f41720c9f5",
       "serverId": "ab419b72-a699-4fba-91ed-29679b37fc49"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf793d5f_ffd8a680",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-16T17:08:12Z",
+      "side": 1,
+      "message": "https://gerrit.aospk.org/c/manifest/+/1776",
+      "revId": "7907b6fe4d292117ec7a3ce8368fa1f41720c9f5",
+      "serverId": "ab419b72-a699-4fba-91ed-29679b37fc49"
     }
   ]
 }
