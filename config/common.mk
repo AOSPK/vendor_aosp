@@ -199,7 +199,7 @@ PRODUCT_EXTRA_RECOVERY_KEYS += \
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
 
 # hasNotch
-ifneq (,$(filter begonia beryllium ginkgo jasmine_sprout joyeuse lavender mojito sweet,$(CUSTOM_DEVICE)))
+ifneq (,$(filter begonia beryllium ginkgo jasmine_sprout joyeuse lavender miatoll mojito sweet,$(CUSTOM_DEVICE)))
 DEVICE_PACKAGE_OVERLAYS += vendor/aosp/overlay/hasnotch
 endif
 
