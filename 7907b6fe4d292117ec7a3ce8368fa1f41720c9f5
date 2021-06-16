@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6f14eb6_b929be57",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-16T16:58:35Z",
+      "side": 1,
+      "message": "This sounds interesting to me, however, I should go back to tracking Snap and Camera2 in our manifest",
+      "revId": "7907b6fe4d292117ec7a3ce8368fa1f41720c9f5",
+      "serverId": "ab419b72-a699-4fba-91ed-29679b37fc49"
+    }
+  ]
+}
