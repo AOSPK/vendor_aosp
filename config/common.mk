@@ -1,5 +1,5 @@
-# Allow vendor/extra to override any property by setting it first
-$(call inherit-product-if-exists, vendor/extra/product.mk)
+# Kraken version
+$(call inherit-product, vendor/aosp/config/version.mk)
 
 PRODUCT_BRAND ?= Kraken
 
@@ -199,12 +199,12 @@ PRODUCT_EXTRA_RECOVERY_KEYS += \
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
 
 # hasNotch
-ifneq (,$(filter begonia beryllium ginkgo joyeuse lavender miatoll mojito sweet tulip,$(CUSTOM_DEVICE)))
+ifneq ($(filter lmi begonia beryllium ginkgo joyeuse lavender miatoll mojito sweet,$(CUSTOM_DEVICE)),)
 DEVICE_PACKAGE_OVERLAYS += vendor/aosp/overlay/hasnotch
 endif
 
 # Blurs
-ifneq (,$(filter msm8226 msm8610 msm8974 msm8992 msm8994 msm8909 msm8916 msm8937 msm8953 msm8996 msm8998 sdm660,$(TARGET_BOARD_PLATFORM)))
+ifneq ($(filter msm8226 msm8610 msm8974 msm8992 msm8994 msm8909 msm8916 msm8937 msm8953 msm8996 msm8998 sdm660,$(TARGET_BOARD_PLATFORM)),)
 PRODUCT_SYSTEM_EXT_PROPERTIES += \
     ro.sf.blurs_are_expensive=0 \
     ro.surface_flinger.supports_background_blur=0
@@ -214,15 +214,12 @@ PRODUCT_SYSTEM_EXT_PROPERTIES += \
     ro.surface_flinger.supports_background_blur=1
 endif
 
-
 # Camera
 TARGET_DISABLE_CAMERAGO ?= false
 ifneq ($(TARGET_DISABLE_CAMERAGO),true)
 PRODUCT_PACKAGES += \
     GoogleCameraGo
 endif
-
--include vendor/aosp/config/version.mk
 
 # Custom Fonts
 TARGET_INCLUDE_CUSTOM_FONTS ?= true
