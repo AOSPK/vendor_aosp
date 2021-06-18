@@ -39,6 +39,10 @@ PRODUCT_PACKAGES += \
     CustomRedAccent \
     CustomYellowAccent
 
+# Active Edge
+PRODUCT_PACKAGES += \
+    ElmyraService
+
 # Charger
 PRODUCT_PACKAGES += \
     charger_res_images
