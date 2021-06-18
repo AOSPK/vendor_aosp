@@ -1,5 +1,5 @@
 # Kraken verson
-$(call inherit-product, vendor/aosp/config/version.mk)
+include vendor/aosp/config/version.mk
 
 PRODUCT_BRAND ?= Kraken
 
@@ -224,5 +224,8 @@ endif
 # Custom Fonts
 TARGET_INCLUDE_CUSTOM_FONTS ?= true
 ifeq ($(TARGET_INCLUDE_CUSTOM_FONTS),true)
--include vendor/aosp/config/fonts.mk
+include vendor/aosp/config/fonts.mk
 endif
+
+# Pixel Style
+include vendor/aosp/config/pixelstyle.mk
