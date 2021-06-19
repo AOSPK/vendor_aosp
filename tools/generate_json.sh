@@ -26,13 +26,6 @@ function generate_json() {
   echo '    }'
 }
 
-if [ $type == "OFFICIAL" ];then
+if [ $type == "OFFICIAL" ]; then
   generate_json > $zip_path.json
-  echo
-  echo 'Information for official maintainers:'
-  echo 'After testing the build, publish to SourceForge'
-  echo 'Submit your build to the AOSPK/official_devices repository with the json content below.'
-  echo
-  cat $zip_path.json
-  echo
 fi
