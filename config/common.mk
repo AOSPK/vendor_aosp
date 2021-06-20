@@ -49,6 +49,15 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/aosp/config/permissions/custom-sysconfig.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/custom-sysconfig.xml
 
+PRODUCT_COPY_FILES += \
+    vendor/aosp/config/permissions/allowlist_com.android.omadm.service.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/allowlist_com.android.omadm.service.xml \
+    vendor/aosp/config/permissions/com.android.omadm.service.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/com.android.omadm.service.xml \
+    vendor/aosp/config/permissions/com.verizon.apn.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/com.verizon.apn.xml \
+    vendor/aosp/config/permissions/com.verizon.services.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/com.verizon.services.xml \
+    vendor/aosp/config/permissions/features-verizon.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/features-verizon.xml \
+    vendor/aosp/config/permissions/obdm_permissions.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/obdm_permissions.xml \
+    vendor/aosp/config/permissions/vzw_mvs_permissions.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/vzw_mvs_permissions.xml
+
 # Copy all Custom-specific init rc files
 $(foreach f,$(wildcard vendor/aosp/prebuilt/common/etc/init/*.rc),\
 	$(eval PRODUCT_COPY_FILES += $(f):$(TARGET_COPY_OUT_SYSTEM)/etc/init/$(notdir $f)))
