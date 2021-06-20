@@ -240,5 +240,8 @@ endif
 # Overlays
 include vendor/aosp/overlay/config.mk
 
+# Accents
+include vendor/aosp/overlay/accents/config.mk
+
 # Pixel Style
 include vendor/aosp/pixelstyle/config.mk
