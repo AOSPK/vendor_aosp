@@ -12,4 +12,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     TvCustomizer
 
-DEVICE_PACKAGE_OVERLAYS += vendor/aosp/overlay/tv
+# Overlays
+PRODUCT_PACKAGES += \
+    KrakenTvOverlay \
+    KrakenTvSettingsProviderOverlay
