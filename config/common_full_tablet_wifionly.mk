@@ -6,4 +6,5 @@ PRODUCT_PACKAGES += \
     LatinIME
 
 # Include LatinIME dictionaries
-PRODUCT_PACKAGE_OVERLAYS += vendor/aosp/overlay/dictionaries
+PRODUCT_PACKAGES += \
+    KrakenLatinIMEOverlay
