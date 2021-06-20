@@ -200,20 +200,12 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.biometrics.face.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.biometrics.face.xml
 endif
 
-PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/aosp/overlay
-DEVICE_PACKAGE_OVERLAYS += vendor/aosp/overlay/common
-
 PRODUCT_EXTRA_RECOVERY_KEYS += \
     vendor/aosp/build/target/product/security/custom
 
 -include vendor/custom-priv/keys/keys.mk
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
-
-# hasNotch
-ifneq ($(filter begonia beryllium ginkgo joyeuse lavender miatoll mojito sweet,$(CUSTOM_DEVICE)),)
-DEVICE_PACKAGE_OVERLAYS += vendor/aosp/overlay/hasnotch
-endif
 
 # Blurs
 ifneq ($(filter msm8226 msm8610 msm8974 msm8992 msm8994 msm8909 msm8916 msm8937 msm8953 msm8996 msm8998 sdm660,$(TARGET_BOARD_PLATFORM)),)
@@ -239,5 +231,14 @@ ifeq ($(TARGET_INCLUDE_CUSTOM_FONTS),true)
 include vendor/aosp/config/fonts.mk
 endif
 
+# hasNotch
+ifneq ($(filter begonia beryllium ginkgo joyeuse lavender miatoll mojito sweet,$(CUSTOM_DEVICE)),)
+PRODUCT_PACKAGES += \
+    KrakenHasNotchOverlay
+endif
+
+# Overlays
+include vendor/aosp/overlay/config.mk
+
 # Pixel Style
-include vendor/aosp/config/pixelstyle.mk
+include vendor/aosp/pixelstyle/config.mk
