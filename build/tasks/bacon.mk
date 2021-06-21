@@ -24,7 +24,5 @@ MD5 := prebuilts/build-tools/path/$(HOST_PREBUILT_TAG)/md5sum
 bacon: $(INTERNAL_OTA_PACKAGE_TARGET)
 	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(CUSTOM_TARGET_PACKAGE)
 	$(hide) $(MD5) $(CUSTOM_TARGET_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(CUSTOM_TARGET_PACKAGE).md5sum
-	cat ./vendor/aosp/tools/ascii;
-	@echo -e ${CL_CYN}""${CL_CYN}
 	@echo "Build complete: $(CUSTOM_TARGET_PACKAGE)" >&2
 	$(hide) ./vendor/aosp/tools/generate_json.sh $(CUSTOM_TARGET_PACKAGE) $(CUSTOM_ANDROID_VERSION) $(CUSTOM_DEVICE) $(CUSTOM_BUILD_TYPE) $(CUSTOM_ANDROID_NAME)
