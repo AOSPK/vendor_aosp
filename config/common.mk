@@ -232,7 +232,7 @@ include vendor/aosp/config/fonts.mk
 endif
 
 # hasNotch
-ifneq ($(filter begonia beryllium ginkgo joyeuse lavender miatoll mojito sweet,$(CUSTOM_DEVICE)),)
+ifneq ($(filter begonia beryllium ginkgo joyeuse lavender miatoll mojito sweet vayu,$(CUSTOM_DEVICE)),)
 PRODUCT_PACKAGES += \
     KrakenHasNotchOverlay
 endif
