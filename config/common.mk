@@ -1,9 +1,29 @@
 # Kraken verson
-include vendor/aosp/config/version.mk
-
 PRODUCT_BRAND ?= Kraken
-
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
+
+# Version
+CUSTOM_BUILD_TYPE ?= UNOFFICIAL
+VANILLA_BUILD ?= false
+CUSTOM_VERSION_PROP := eleven
+CUSTOM_PLATFORM_VERSION := 11
+CUSTOM_BUILD_DATE=$(shell date +"%Y%m%d-%H%M")
+CUSTOM_DEVICE := $(CUSTOM_BUILD)
+
+# GMS
+ifeq ($(VANILLA_BUILD), true)
+    CUSTOM_APPS_VERSION := Vanilla
+else
+    $(call inherit-product, vendor/gapps/config.mk)
+    CUSTOM_APPS_VERSION := GApps
+endif
+
+ifeq ($(CUSTOM_BUILD_TYPE), OFFICIAL)
+    CUSTOM_VERSION := Kraken-$(CUSTOM_PLATFORM_VERSION)-$(CUSTOM_APPS_VERSION)-$(CUSTOM_BUILD_DATE)-$(CUSTOM_DEVICE)
+    PRODUCT_PACKAGES += Updater
+else
+    CUSTOM_VERSION := Kraken-$(CUSTOM_PLATFORM_VERSION)-$(CUSTOM_APPS_VERSION)-$(CUSTOM_BUILD_DATE)-$(CUSTOM_DEVICE)-$(CUSTOM_BUILD_TYPE)
+endif
 
 ifeq ($(PRODUCT_GMS_CLIENTID_BASE),)
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
@@ -93,7 +113,7 @@ endif
 
 # TWRP
 ifeq ($(WITH_TWRP),true)
-include vendor/aosp/config/twrp.mk
+RECOVERY_VARIANT := twrp
 endif
 
 # Do not include art debug targets
@@ -218,24 +238,22 @@ PRODUCT_SYSTEM_EXT_PROPERTIES += \
     ro.surface_flinger.supports_background_blur=1
 endif
 
-# Camera
-TARGET_DISABLE_CAMERAGO ?= false
-ifneq ($(TARGET_DISABLE_CAMERAGO),true)
-PRODUCT_PACKAGES += \
-    GoogleCameraGo
-endif
-
-# Custom Fonts
-TARGET_INCLUDE_CUSTOM_FONTS ?= true
-ifeq ($(TARGET_INCLUDE_CUSTOM_FONTS),true)
-include vendor/aosp/config/fonts.mk
-endif
-
 # hasNotch
 ifneq ($(filter begonia beryllium ginkgo joyeuse lavender miatoll mojito sweet vayu,$(CUSTOM_DEVICE)),)
 PRODUCT_PACKAGES += \
     KrakenHasNotchOverlay
 endif
+
+# Camera
+PRODUCT_PACKAGES += \
+    GoogleCameraGo
+
+# Custom Fonts
+TARGET_INCLUDE_CUSTOM_FONTS ?= true
+ifeq ($(TARGET_INCLUDE_CUSTOM_FONTS),true)
+include vendor/aosp/fonts/fonts.mk
+endif
+
 
 # Overlays
 include vendor/aosp/overlay/overlays.mk
