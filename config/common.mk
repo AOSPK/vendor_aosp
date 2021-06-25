@@ -1,8 +1,7 @@
-# Kraken verson
+# Kraken version
 PRODUCT_BRAND ?= Kraken
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
-# Version
 CUSTOM_BUILD_TYPE ?= UNOFFICIAL
 VANILLA_BUILD ?= false
 CUSTOM_VERSION_PROP := eleven
