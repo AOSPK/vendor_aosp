@@ -238,7 +238,7 @@ PRODUCT_SYSTEM_EXT_PROPERTIES += \
 endif
 
 # hasNotch
-ifneq ($(filter begonia beryllium ginkgo joyeuse lavender miatoll mojito sweet vayu,$(CUSTOM_DEVICE)),)
+ifneq ($(filter begonia beryllium ginkgo joyeuse lavender curtana excalibur gram mojito sweet vayu,$(CUSTOM_DEVICE)),)
 PRODUCT_PACKAGES += \
     KrakenHasNotchOverlay
 endif
