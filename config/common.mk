@@ -126,10 +126,6 @@ PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
 # Disable vendor restrictions
 PRODUCT_RESTRICT_VENDOR_FILES := false
 
-# Bootanimation
-PRODUCT_COPY_FILES += \
-    vendor/aosp/prebuilt/common/media/bootanimation.zip:system/media/bootanimation.zip
-
 # AOSP packages
 PRODUCT_PACKAGES += \
     Terminal
@@ -252,6 +248,9 @@ TARGET_INCLUDE_CUSTOM_FONTS ?= true
 ifeq ($(TARGET_INCLUDE_CUSTOM_FONTS),true)
 include vendor/aosp/fonts/fonts.mk
 endif
+
+# Bootanimation
+include vendor/aosp/prebuilt/common/bootanimation/bootanimation.mk
 
 # Overlays
 include vendor/aosp/overlay/overlays.mk
