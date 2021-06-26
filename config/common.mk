@@ -186,6 +186,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.storage_manager.enabled=true
 
+# Chromium 
+PRODUCT_PACKAGES += \
+    TrichromeChrome \
+    TrichromeWebView
+
 # These packages are excluded from user builds
 PRODUCT_PACKAGES_DEBUG += \
     procmem
