@@ -82,5 +82,4 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     PixelStyleFrameworksOverlay \
-    PixelStyleSettingsOverlay \
     PixelStyleSystemUIOverlay
