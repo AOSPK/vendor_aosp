@@ -13,7 +13,7 @@ CUSTOM_DEVICE := $(CUSTOM_BUILD)
 ifeq ($(VANILLA_BUILD), true)
     CUSTOM_APPS_VERSION := Vanilla
 else
-    $(call inherit-product, vendor/google/gms/gms-vendor.mk)
+    $(call inherit-product, vendor/gapps/common/common-vendor.mk)
     CUSTOM_APPS_VERSION := GApps
 endif
 
