@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01ab62ca_c80a15ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-07-19T16:43:32Z",
+      "side": 1,
+      "message": "It is necessary to create the repositories in our org",
+      "revId": "35996c912dca977f99eb6c54d4c5d1671a49aa46",
+      "serverId": "ab419b72-a699-4fba-91ed-29679b37fc49"
+    }
+  ]
+}
