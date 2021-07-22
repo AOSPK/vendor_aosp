@@ -14,5 +14,5 @@ PRODUCT_PACKAGES += \
 
 # Overlays
 PRODUCT_PACKAGES += \
-    KrakenTvOverlay \
-    KrakenTvSettingsProviderOverlay
+    TvOverlay \
+    TvSettingsProviderOverlay
