@@ -13,25 +13,25 @@
 # limitations under the License.
 
 PRODUCT_PACKAGES += \
-    KrakenCalendarOverlay \
-    KrakenCamera2Overlay \
-    KrakenContactsOverlay \
-    KrakenCustomPartsOverlay \
-    KrakenCustomSettingsProviderOverlay \
-    KrakenDeskClockOverlay \
-    KrakenDialerOverlay \
-    KrakenDocumentsUIOverlay \
-    KrakenExactCalculatorOverlay \
-    KrakenFMapp2Overlay \
-    KrakenFMRadioOverlay \
-    KrakenFrameworksOverlay \
-    KrakenGallery2Overlay \
-    KrakenLatinIMEOverlay \
-    KrakenMessagingOverlay \
-    KrakenNetworkStackOverlay \
-    KrakenSettingsOverlay \
-    KrakenSettingsProviderOverlay \
-    KrakenSimpleDeviceConfigOverlay \
-    KrakenSnapOverlay \
-    KrakenSystemUIOverlay \
-    KrakenThemePickerOverlay
+    CalendarOverlay \
+    Camera2Overlay \
+    ContactsOverlay \
+    CustomPartsOverlay \
+    CustomSettingsProviderOverlay \
+    DeskClockOverlay \
+    DialerOverlay \
+    DocumentsUIOverlay \
+    ExactCalculatorOverlay \
+    FMapp2Overlay \
+    FMRadioOverlay \
+    FrameworksOverlay \
+    Gallery2Overlay \
+    LatinIMEOverlay \
+    MessagingOverlay \
+    NetworkStackOverlay \
+    SettingsOverlay \
+    SettingsProviderOverlay \
+    SimpleDeviceConfigOverlay \
+    SnapOverlay \
+    SystemUIOverlay \
+    ThemePickerOverlay

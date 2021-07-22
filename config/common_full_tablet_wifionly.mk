@@ -7,4 +7,4 @@ PRODUCT_PACKAGES += \
 
 # Include LatinIME dictionaries
 PRODUCT_PACKAGES += \
-    KrakenLatinIMEOverlay
+    LatinIMEOverlay

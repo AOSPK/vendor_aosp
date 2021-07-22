@@ -7,6 +7,6 @@ PRODUCT_PACKAGES += \
 
 # Include LatinIME dictionaries
 PRODUCT_PACKAGES += \
-    KrakenLatinIMEOverlay
+    LatinIMEOverlay
 
 $(call inherit-product, vendor/aosp/config/telephony.mk)
