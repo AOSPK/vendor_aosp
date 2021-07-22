@@ -257,6 +257,3 @@ include vendor/aosp/overlay/overlays.mk
 
 # Accents
 include vendor/aosp/overlay/Accents/accents.mk
-
-# Pixel Style
-include vendor/aosp/pixelstyle/styles.mk
