@@ -33,5 +33,6 @@ PRODUCT_PACKAGES += \
     SettingsProviderOverlay \
     SimpleDeviceConfigOverlay \
     SnapOverlay \
+    SudOverlay \
     SystemUIOverlay \
     ThemePickerOverlay
