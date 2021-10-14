@@ -15,39 +15,27 @@
 
 KRAKEN_MOD_VERSION = 12
 KRAKEN_MOD_NAME = twelve
-KRAKEN_BUILD_TYPE := UNOFFICIAL
-KRAKEN_BUILD_ZIP_TYPE := Vanilla
+KRAKEN_BUILD_TYPE := ALPHA
+KRAKEN_BUILD_ZIP_TYPE ?= GApps
 KRAKEN_BUILD_DATE := $(shell date +"%Y%m%d-%H%M")
-KRAKEN_BUILD_TYPE ?= $(CUSTOM_BUILD_TYPE)
+KRAKEN_VANILLA ?= false
 
-ifeq ($(KRAKEN_BETA),true)
-    KRAKEN_BUILD_TYPE := BETA
-endif
-
-ifeq ($(KRAKEN_GAPPS), true)
+ifeq ($(KRAKEN_VANILLA), true)
+    KRAKEN_BUILD_ZIP_TYPE := Vanilla
+else
     $(call inherit-product, vendor/gapps/common/common-vendor.mk)
     KRAKEN_BUILD_ZIP_TYPE := GApps
 endif
 
 CURRENT_DEVICE=$(shell echo "$(TARGET_PRODUCT)" | cut -d'_' -f 2,3)
 
-ifeq ($(KRAKEN_OFFICIAL), true)
-   LIST = $(shell cat infrastructure/official_devices/devices.json | awk '$$1 != "#" { print $$2 }')
-    ifeq ($(filter $(CURRENT_DEVICE), $(LIST)), $(CURRENT_DEVICE))
-      IS_OFFICIAL=true
-      KRAKEN_BUILD_TYPE := OFFICIAL
-
-PRODUCT_PACKAGES += \
-    Updater
-
-    endif
-    ifneq ($(IS_OFFICIAL), true)
-       KRAKEN_BUILD_TYPE := UNOFFICIAL
-       $(error Device is not official "$(CURRENT_DEVICE)")
-    endif
+ifeq ($(KRAKEN_BUILD_TYPE), OFFICIAL)
+    KRAKEN_VERSION := Kraken-$(KRAKEN_MOD_VERSION)-$(KRAKEN_BUILD_ZIP_TYPE)-$(KRAKEN_BUILD_DATE)-$(CURRENT_DEVICE)
+    PRODUCT_PACKAGES += \
+        Updater
+else
+    KRAKEN_VERSION := Kraken-$(KRAKEN_MOD_VERSION)-$(KRAKEN_BUILD_ZIP_TYPE)-$(KRAKEN_BUILD_DATE)-$(CURRENT_DEVICE)-$(KRAKEN_BUILD_TYPE)
 endif
-
-KRAKEN_VERSION := Kraken-$(KRAKEN_MOD_VERSION)-$(KRAKEN_BUILD_ZIP_TYPE)-$(KRAKEN_BUILD_DATE)-$(CURRENT_DEVICE)
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
   ro.kraken.version=$(KRAKEN_VERSION) \
