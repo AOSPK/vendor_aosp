@@ -26,8 +26,7 @@ PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
 # Dex preopt
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     SystemUI \
-    Launcher3QuickStep \
-    NexusLauncherRelease
+    Launcher3QuickStep
 
 # Enable Android Beam on all targets
 PRODUCT_COPY_FILES += \
