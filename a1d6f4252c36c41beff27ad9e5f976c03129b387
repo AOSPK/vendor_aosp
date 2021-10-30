@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b07497d_d74531e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-10-30T14:07:22Z",
+      "side": 1,
+      "message": "This will be moved to vendor/gapps",
+      "revId": "a1d6f4252c36c41beff27ad9e5f976c03129b387",
+      "serverId": "ab419b72-a699-4fba-91ed-29679b37fc49"
+    }
+  ]
+}
