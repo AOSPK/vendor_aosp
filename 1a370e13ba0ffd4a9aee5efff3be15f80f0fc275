@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25e6212a_6f85407d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000011
+      },
+      "writtenOn": "2021-10-30T13:28:45Z",
+      "side": 1,
+      "message": "Prebuilts shouldn\u0027t be dexpreopt",
+      "revId": "1a370e13ba0ffd4a9aee5efff3be15f80f0fc275",
+      "serverId": "ab419b72-a699-4fba-91ed-29679b37fc49"
+    }
+  ]
+}
