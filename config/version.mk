@@ -25,7 +25,7 @@ ifeq ($(KRAKEN_VANILLA), true)
     KRAKEN_BUILD_ZIP_TYPE := Vanilla
     PRODUCT_SYSTEM_DEFAULT_PROPERTIES += ro.kraken.ziptype=vanilla
 else
-    $(call inherit-product, vendor/gapps/common/common-vendor.mk)
+    $(call inherit-product, vendor/aosp/config/gapps.mk)
     KRAKEN_BUILD_ZIP_TYPE := GApps
     PRODUCT_SYSTEM_DEFAULT_PROPERTIES += ro.kraken.ziptype=gapps
 endif

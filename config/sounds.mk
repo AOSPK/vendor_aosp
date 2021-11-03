@@ -24,6 +24,6 @@ PRODUCT_COPY_FILES += \
 
 # Set default sounds
 PRODUCT_PRODUCT_PROPERTIES += \
-    ro.config.alarm_alert=Bright_morning.ogg \
-    ro.config.notification_sound=End_note.ogg \
-    ro.config.ringtone=The_big_adventure.ogg
+    ro.config.alarm_alert=Icicles.ogg \
+    ro.config.notification_sound=Ping.ogg \
+    ro.config.ringtone=Crackle.ogg
