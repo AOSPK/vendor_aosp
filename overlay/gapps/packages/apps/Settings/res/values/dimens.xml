@@ -2,5 +2,4 @@
 <resources>
     <dimen name="app_bar_height">64.0dip</dimen>
     <dimen name="search_bar_card_elevation">1.0dip</dimen>
-    <dimen name="search_bar_margin">8.0dip</dimen>
 </resources>
