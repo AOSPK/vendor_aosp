@@ -24,6 +24,7 @@ KRAKEN_BETA := false
 ifeq ($(KRAKEN_VANILLA), true)
     KRAKEN_BUILD_ZIP_TYPE := Vanilla
     PRODUCT_SYSTEM_DEFAULT_PROPERTIES += ro.kraken.ziptype=vanilla
+    PRODUCT_PACKAGES += WallpaperPicker
 else
     $(call inherit-product, vendor/aosp/config/gapps.mk)
     KRAKEN_BUILD_ZIP_TYPE := GApps
