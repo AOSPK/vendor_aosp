@@ -95,7 +95,9 @@ SOONG_CONFIG_krakenGlobalVars_target_process_sdk_version_override := $(TARGET_PR
 SOONG_CONFIG_krakenGlobalVars_target_surfaceflinger_udfps_lib := $(TARGET_SURFACEFLINGER_UDFPS_LIB)
 SOONG_CONFIG_krakenGlobalVars_uses_camera_parameter_lib := $(TARGET_SPECIFIC_CAMERA_PARAMETER_LIBRARY)
 ifneq ($(filter $(QSSI_SUPPORTED_PLATFORMS),$(TARGET_BOARD_PLATFORM)),)
-SOONG_CONFIG_krakenQcomVars_qcom_display_headers_namespace := vendor/qcom/opensource/commonsys-intf/display
+SOONG_CONFIG_krakenQcomVars_qcom_display_headers_namespace := \
+    vendor/qcom/opensource/commonsys/display \
+    vendor/qcom/opensource/commonsys-intf/display
 else
 SOONG_CONFIG_krakenQcomVars_qcom_display_headers_namespace := $(QCOM_SOONG_NAMESPACE)/display
 endif
