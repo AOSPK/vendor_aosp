@@ -102,7 +102,7 @@ PRODUCT_PACKAGES += \
     NavigationBarMode2ButtonOverlay
 
 # Bootanimation
-include vendor/aosp/config/bootanimation.mk
+#include vendor/aosp/config/bootanimation.mk
 
 # Fonts
 include vendor/aosp/config/fonts.mk
