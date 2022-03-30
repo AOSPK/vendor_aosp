@@ -20,6 +20,8 @@ PRODUCT_PACKAGE_OVERLAYS += \
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
     vendor/aosp/overlay/common
 
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += vendor/aosp/config/device_framework_matrix.xml
+
 # Dex preopt
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     SystemUI \
